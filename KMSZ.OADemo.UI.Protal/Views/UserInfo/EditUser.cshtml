@@ -1,0 +1,73 @@
+﻿@model KMSZ.OADemo.Model.UserInfo
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>EditUser</title>
+    <script src="~/Scripts/jquery-1.8.0.min.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
+
+    <script type="text/javascript">
+        function afterEdit(data) {
+            if (data == "ok") {
+                //修改成功后，子页面要关闭父容器的对话框，刷新表格
+                window.parent.window.afterEditSuccess();
+            }
+            else {
+                alert(data);
+            }
+        }
+        //触发当前修改的表单提交
+        function submitEditFrm() {
+            $("form").submit();
+        }
+    </script>
+</head>
+<body>
+    @using (Ajax.BeginForm("EditUser","UserInfo",new AjaxOptions() { HttpMethod="Post",OnSuccess="afterEdit"}))
+    {
+        @Html.ValidationSummary(true)
+        <table>
+            <tr>
+                <td>用户名：</td>
+                <td>@Html.EditorFor(model=>model.UserName)
+                @Html.ValidationMessageFor(model => model.UserName)</td>
+            </tr>
+            <tr>
+                <td>密码：</td>
+                <td>
+                    @Html.EditorFor(model => model.Pwd)
+                @Html.ValidationMessageFor(model => model.Pwd)
+            </td>
+        </tr>
+            <tr>
+                <td>邮箱：</td>
+                <td>
+                    @Html.EditorFor(model => model.Mail)
+                @Html.ValidationMessageFor(model => model.Mail)
+            </td>
+        </tr>
+            <tr>
+                <td>电话：</td>
+                <td>
+                    @Html.EditorFor(model => model.Phone)
+                @Html.ValidationMessageFor(model => model.Phone)
+            </td>
+        </tr>
+            <tr>
+                <td>备注：</td>
+                <td>
+                    @Html.EditorFor(model => model.Remark)
+                @Html.ValidationMessageFor(model => model.Remark)
+            </td>
+        </tr>
+        </table>
+    }
+   </body>
+</html>

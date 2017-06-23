@@ -1,0 +1,51 @@
+﻿@model KMSZ.OADemo.Model.UserInfo
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>SetRole</title>
+    <script src="~/Scripts/jquery-1.8.0.min.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
+    <script type="text/javascript">
+        //设置成功后，关闭对话框
+        function afterSetRole(data) {
+            window.parent.window.afterSetRole();
+        }
+        //触发当前修改的表单提交
+        function submitEditFrm() {
+            $("form").submit();
+        }
+    </script>
+</head>
+<body>
+    <div> 
+        <h3>当前给用户 @Model.UserName  设置角色信息</h3>
+        @{ 
+            List<KMSZ.OADemo.Model.Role> allRoles= ViewBag.AllRoles;
+            List<int> existRoleIds = ViewBag.ExistRoleIDs;
+            using (Ajax.BeginForm(new AjaxOptions() { HttpMethod = "Post", OnSuccess = "afterSetRole" }))
+            {
+                <input type="hidden" name="hidUserId" value="@Model.Id" />
+                foreach (var role in allRoles)
+                {
+                    string id = "CKB_" + role.Id;
+                    <p>
+                        @if (existRoleIds.Contains(role.Id))
+                        {
+                        <input type = "checkbox" checked= "checked" name = "@id" id = "@id" value = "@id" />
+                        }
+                        else
+                        {
+                        <input type = "checkbox" name = "@id" id = "@id" value = "@id" />
+                        }
+                        <label for="@id" > @role.RoleName </label >
+                 </p>
+                    }
+                }
+            }
+    </div>
+</body>
+</html>

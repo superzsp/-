@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="11245da436554c82a4a2b72246ba9129" Name="Diagram1" >
+        <EntityTypeShape EntityType="DataModel.UserInfo" Width="1.5" PointX="2.25" PointY="0.5" />
+        <EntityTypeShape EntityType="DataModel.Role" Width="1.5" PointX="5.125" PointY="6" />
+        <EntityTypeShape EntityType="DataModel.Department" Width="1.5" PointX="4.625" PointY="0.5" />
+        <EntityTypeShape EntityType="DataModel.WorkTime" Width="1.5" PointX="7.125" PointY="1.125" />
+        <EntityTypeShape EntityType="DataModel.ActionInfo" Width="1.5" PointX="1.875" PointY="7.125" />
+        <AssociationConnector Association="DataModel.UserInfoRole" />
+        <AssociationConnector Association="DataModel.ActionInfoRole" />
+        <EntityTypeShape EntityType="DataModel.R_User_ActionInfo" Width="1.5" PointX="0.75" PointY="4.25" />
+        <AssociationConnector Association="DataModel.UserInfoR_User_ActionInfo" />
+        <AssociationConnector Association="DataModel.ActionInfoR_User_ActionInfo" />
+        <AssociationConnector Association="DataModel.UserInfoDepartment" />
+        <AssociationConnector Association="DataModel.DepartmentRole" />
+        <EntityTypeShape EntityType="DataModel.UserInfoMeta" Width="1.5" PointX="0.5" PointY="0.5" />
+        <EntityTypeShape EntityType="DataModel.Demo" Width="1.5" PointX="6.75" PointY="3.75" />
+        <AssociationConnector Association="DataModel.ActioinInfoRole" />
+        <EntityTypeShape EntityType="DataModel.MenuInfo" PointX="7.375" PointY="6.75" Width="1.5" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,97 @@
+﻿@using KMSZ.OADemo.Model;
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>SetAction</title>
+    <link href="~/Content/JQEasyUI/themes/default/easyui.css" rel="stylesheet" />
+    <link href="~/Content/JQEasyUI/themes/icon.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery.easyui.min.js"></script>
+    <script src="~/Scripts/jquery-1.8.0.min.js"></script> 
+    <script src="~/Scripts/easyui-lang-zh_CN.js"></script>
+    <script type="text/javascript">
+        $(function ()
+        {
+            $(".setPass").click(function () {
+                //去掉其他两个checkbox选中状态为非checked
+                if ($(this).attr("checked") == "checked") {
+                    $(this).siblings(":checkbox").attr("checked", false);
+                    //发送异步请求
+                    var requestData = {
+                        IsPass: $(this).attr("isPass")=="true"?true:false,
+                        UserInfoId: $("#userId").val(),
+                        ActionInfoId: $(this).attr("actionId"),
+                    };
+                    $.post("/UserInfo/SetUserActionPass", requestData, function (data) {
+                        if (data != "ok") {
+                            alert("修改失败");
+                        }
+                    });
+                }
+                else {
+                    //发送异步请求
+                    var requestData = {
+                        IsPass: $(this).attr("isPass") == "true" ? true : false,
+                        UserInfoId: $("#userId").val(),
+                        ActionInfoId: $(this).attr("actionId"),
+                    };
+                    $.post("/UserInfo/RemoveUserActionPass", requestData, function (data) {
+                        if (data != "ok") {
+                            alert("修改失败");
+                        }
+                    });
+                }
+            });
+        }
+        );
+    </script>
+</head>
+<body>
+    <div> 
+        <h3>当前给 @Model.UserName 设置特殊权限</h3>
+        <input type="hidden" id="userId" value="@Model.Id" />
+        @{ 
+            List<ActionInfo> allActions= ViewBag.AllActionInfos;
+            List<R_User_ActionInfo>allExisActions=ViewBag.ExistUserActions;
+            <table>
+                <tr><th>权限编号</th><th>权限名</th><th>URL</th><th>请求类型</th><th>操作</th></tr>
+                @foreach (var item in allActions)
+                {
+                    var rExistUserAction = allExisActions.FindAll(r => r.ActionInfoId == item.Id).FirstOrDefault();
+                    string strId = "ckb_" + item.Id;
+                    string strIdNO = "ckb_No_" + item.Id;
+                    <tr>
+                        <td>@item.Id</td>
+                        <td>@item.ActionName</td>
+                        <td>@item.Url</td>
+                        <td>@item.HttpMethod</td>
+                        <td>
+                            @if (rExistUserAction == null)
+                            {
+                                <label for="@strId">允许</label><input actionId="@item.Id" isPass="true" class="setPass" type="checkbox" id="@strId" name="@strId" />
+                                <label for="@strIdNO">拒绝</label><input actionId="@item.Id" isPass="false" class="setPass" type="checkbox" id="@strId" name="@strId" />
+                            }
+                            else
+                            {
+                                if (rExistUserAction.IsPass)
+                                {
+                                    <label for="@strId">允许</label><input actionId="@item.Id" checked="checked" isPass="true" class="setPass" type="checkbox" id="@strId" name="@strId" />
+                                    <label for="@strIdNO">拒绝</label><input actionId="@item.Id" isPass="false" class="setPass" type="checkbox" id="@strId" name="@strId" />
+                                }
+                                else
+                                {
+                                    <label for="@strId">允许</label><input actionId="@item.Id" isPass="true" class="setPass" type="checkbox" id="@strId" name="@strId" />
+                                    <label for="@strIdNO">拒绝</label><input actionId="@item.Id" isPass="false" checked="checked" class="setPass" type="checkbox" id="@strId" name="@strId" />
+                                }
+                            }
+                        </td>
+                    </tr>
+                }
+            </table>
+        }
+    </div>
+</body>
+</html>

@@ -1,0 +1,269 @@
+﻿
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>ShowUsers</title>
+    <link href="~/Content/JQEasyUI/themes/default/easyui.css" rel="stylesheet" />
+    <link href="~/Content/JQEasyUI/themes/icon.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-1.8.0.min.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
+    <script src="~/Scripts/jquery.easyui.min.js"></script>
+    <script src="~/Scripts/easyui-lang-zh_CN.js"></script>
+    <script src="~/Scripts/datapattern.js"></script>
+
+    <script type="text/javascript">
+        $(function () {
+            initTable();
+            $("#addDiv").css("display", "none");
+            $("#editDiv").css("display", "none");
+            //绑定一个搜索的点击事件
+            $("#linkSearch").click(function () {
+                //把要搜素的条件异步发送到后台，让后台返回新的json对象，再弄到表格上去
+                var queryData = {SName:$("#searchName").val(),SMail:$("#searchMail").val()};
+                initTable(queryData);
+            });
+        });
+        function initTable(searchParam) {
+            $('#tt').datagrid({
+                url: '/Role/LoadRoles',//
+                title: '角色列表',
+                width: 700,
+                height: 400,
+                fitColumns: true,
+                idField: 'Id',
+                loadMsg: '正在加载角色的信息...',
+                pagination: true,
+                singleSelect: false,
+                pageSize: 10,
+                pageNumber: 1,
+                pageList: [10, 20, 30],
+                queryParams: searchParam,//表格初始化往后台发送异步请求后台的json数据时候额外发送的请求参数。
+                columns: [[
+                        { field: 'ck', checkbox: true, align: 'left', width: 50 },
+                        { field: 'Id', title: '角色编号', width: 80 },
+                        { field: 'RoleName', title: '角色名', width: 120 },
+                        { field: 'UserName', title: '提交人2', width: 120 },
+                        {
+                            field: 'SubTime', title: '提交时间', width: 80, align: 'right',
+                            formatter: function (value, row, index) {
+                                return (eval(value.replace(/\/Date\((\d+)\)\//gi, "new Date($1)"))).pattern("yyyy-M-d h:m:s.S");
+                            }
+                        },
+                        {
+                            field: 'SubBy', title: '修改', width: 120,
+                            formatter: function (value, row, index) {
+                                return ("<a href='javascript:edit("+row.Id+")'>修改</a>");
+                            }
+                        }
+
+                ]],
+               /* toolbar: [{
+                    id: 'btnAdd',
+                    text: '添加',//添加
+                    iconCls: 'icon-add',
+                    handler: function () {
+                        showAddDialog();
+                    }
+                },
+                {
+                    id: 'btnEdit',
+                    text: '修改',//修改
+                    iconCls: 'icon-edit',
+                    handler: function () {
+                        edit();
+                    }
+                },
+                {
+                    id: 'btnDel',
+                    text: '删除',//删除
+                    iconCls: 'icon-remove',
+                    handler: function () {
+                        doDelete();
+                    }
+                }],
+                */
+                onHeaderContextMenu: function (e, field) {
+                },
+                onDblClickRow: function (rowIndex, rowData)
+                {
+                    edit(rowData.Id);
+                }
+            });
+            initButton();
+        }
+        function initButton()
+        {
+            var pager = $('#tt').datagrid().datagrid('getPager');	// get the pager of datagrid
+            pager.pagination({
+                buttons: [{
+                    iconCls: 'icon-add',
+                    text: '添加',
+                    handler: function () {
+                        showAddDialog();
+                    }
+                }, {
+                    iconCls: 'icon-edit',
+                    text: '修改',//
+                    handler: function () {
+                        //拿到选中的所有行
+                        var rows = $("#tt").datagrid("getSelections");
+                        //rows是选中行的数据的json的集合
+                        if (rows.length <= 0) {
+                            $.messager.alert('错误消息', "请选择需要修改的角色信息");
+                            return;
+                        }
+                        edit(rows[0].Id);
+                    }
+                }, {
+                    iconCls: 'icon-remove',
+                    text: '删除',//删除
+                    handler: function () {
+                        doDelete();
+                    }
+                },]
+            });
+        }
+        function showAddDialog() {
+            $("#addDiv").css("display", "block");
+            $("#addDiv").dialog({
+                title: "添加角色信息",
+                width: 250,
+                height: 250,
+                collapsible: true,
+                minimizable: true,
+                maximizable: true,
+                resizable: true,
+                modal:true,
+                buttons: [{
+                    text: '添加',//添加
+                    iconCls: 'icon-ok',
+                    handler: function () {
+                        //触发添加表单提交
+                        $("#addDiv form").submit();
+                    }
+                }, {
+                    text: '',//取消
+                    iconCls: 'icon-cancel',
+                    handler: function () {
+                        $("#addDiv").dialog('close');
+                    }
+                }]
+            });
+        }
+        function afterAdd(data) {
+            if (data == "ok") {
+                $("#addDiv").dialog('close');
+                initTable();
+            }
+            else {
+                $.messager.alert("错误消息",data);
+            }
+        }
+        function edit(Id) {
+            //给显示修改当前实体的frame标签的src属性
+            //UserInfo/EditUser/2
+            var url = "/Role/Edit/" + Id;
+            $("#frameEdit").attr("src", url);
+
+            $("#editDiv").css("display", "block");
+            $("#editDiv").dialog({
+                title: "修改角色信息",
+                width: 300,
+                height: 250,
+                collapsible: true,
+                minimizable: true,
+                maximizable: true,
+                resizable: true,
+                modal: true,
+                buttons: [{
+                    text: '修改',//
+                    iconCls: 'icon-ok',
+                    handler: function () {
+                        //触发修改表单提交
+                        //在父容器当中拿到子容器的window submitEditFrm
+                        var iframeObj = $("#frameEdit")[0];
+                        iframeObj.contentWindow.submitEditFrm();
+                    }
+                }, {
+                    text: '',//取消
+                    iconCls: 'icon-cancel',
+                    handler: function () {
+                        $("#editDiv").dialog('close');
+                    }
+                }]
+            });
+        }
+        function doDelete() {
+            //拿到选中的所有行
+            var rows = $("#tt").datagrid("getSelections");
+            //rows是选中行的数据的json的集合
+            if (rows.length <= 0) {
+                $.messager.alert('错误消息',"请选择角色");
+                return;
+            }
+            $.messager.confirm("温馨提示", "确认删除吗", function (r) {
+                if (r){
+                //拿到所有行的ID
+                var ids = "";
+                for (var i = 0; i < rows.length; i++) {
+                    ids += rows[i].Id + ",";
+                }
+                ids = ids.substr(0, ids.length - 1);
+                $.post("/Role/DeleteIds", { ids: ids }, function (data) {
+                    if (data == "ok") {
+                        $("#tt").datagrid("clearSelections");//清除选中的数据
+                        initTable();
+                    }
+                    else {
+                        $.messager.alert("错误提示", "删除失败");
+                    }
+                });
+                }
+            });
+        }
+    //当修改成功之后，由子容器来调用的方法：关闭对话框，刷新表格
+        function  afterEditSuccess()
+        {
+            $("#editDiv").dialog('close');
+            initTable();
+        }
+    </script>
+</head>
+<body>
+    <!--搜索部分---开始-->
+    <div>
+        角色名：<input type="text" name="searchName" id="searchName" />
+        邮箱：<input type="text" name="searchMail" id="searchMail" />
+        <a id="linkSearch" href="#" class="easyui-linkbutton" data-options="iconCls:'icon-search'" style="width:80px">搜索</a>
+        <hr />
+    </div>
+    <!--搜索部分---结束-->
+    <!--表格部分---开始-->
+    <div>
+        <table id="tt" style="width: 700px;" title="标题，可以使用代码进行初始化，也可以使用这种属性的方式" iconcls="icon-edit"></table>
+    </div>
+    <!--表格部分--结束-->
+    <!--添加部分--开始-->
+    <div id="addDiv">
+        @using (Ajax.BeginForm("Add", "Role", new AjaxOptions() { HttpMethod = "Post", OnSuccess = "afterAdd" }))
+        {
+            <table>
+                <tr>
+                    <td>角色名：</td>
+                    <td><input type="text" name="RoleName" /></td>
+                </tr>
+            </table>
+        }
+    </div>
+    <!--添加部分--结束-->
+    <!--修改部分--开始-->
+    <div id="editDiv">
+        <iframe width="100%" height="100%" frameborder="0" id="frameEdit" src="~/Error.html"></iframe>
+    </div>
+    <!--添加部分--结束-->
+</body>
+</html>

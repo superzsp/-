@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<objects xmlns="http://www.springframework.net">
+
+  <object id="ActionInfoService" type="KMSZ.OADemo.BLL.ActionInfoService, KMSZ.OADemo.BLL" singleton="false" >
+  </object>
+
+  <object id="DemoService" type="KMSZ.OADemo.BLL.DemoService, KMSZ.OADemo.BLL" singleton="false" >
+  </object>
+
+  <object id="DepartmentService" type="KMSZ.OADemo.BLL.DepartmentService, KMSZ.OADemo.BLL" singleton="false" >
+  </object>
+  
+  <object id="MenuInfoService" type="KMSZ.OADemo.BLL.MenuInfoService, KMSZ.OADemo.BLL" singleton="false" >
+  </object>
+
+  <object id="R_User_ActionInfoService" type="KMSZ.OADemo.BLL.R_User_ActionInfoService, KMSZ.OADemo.BLL" singleton="false" >
+  </object>
+
+  <object id="RoleService" type="KMSZ.OADemo.BLL.RoleService, KMSZ.OADemo.BLL" singleton="false" >
+  </object>
+
+  <object id="UserInfoService" type="KMSZ.OADemo.BLL.UserInfoService, KMSZ.OADemo.BLL" singleton="false" >
+  </object>
+
+  <object id="UserInfoMetaService" type="KMSZ.OADemo.BLL.UserInfoMetaService, KMSZ.OADemo.BLL" singleton="false" >
+  </object>
+
+  <object id="WorkTimeService" type="KMSZ.OADemo.BLL.WorkTimeService, KMSZ.OADemo.BLL" singleton="false" >
+  </object>
+</objects>

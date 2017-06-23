@@ -1,0 +1,853 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{77CAAEBB-38A0-4FEF-BFC9-C38ABC183F2E}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>KMSZ.OADemo.UI.Protal</RootNamespace>
+    <AssemblyName>KMSZ.OADemo.UI.Protal</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Common.Logging">
+      <HintPath>..\Library\Common.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="log4net">
+      <HintPath>..\Library\log4net\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Spring.Core">
+      <HintPath>..\Library\Spring.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Spring.Web">
+      <HintPath>..\Library\Spring.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="Spring.Web.Extensions">
+      <HintPath>..\Library\Spring.Web.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="Spring.Web.Mvc4">
+      <HintPath>..\Library\Spring.Web.Mvc4.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Http">
+      <HintPath>..\Library\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost">
+      <HintPath>..\Library\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Web.Razor">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Webpages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Deployment">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Webpages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Razor">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Webpages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Helpers">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Config\controllers.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Content Include="Config\Services.xml" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Images\3DSMAX.png" />
+    <Content Include="Content\Images\7_7.jpg" />
+    <Content Include="Content\Images\Alien Folder.png" />
+    <Content Include="Content\Images\applebg.jpg" />
+    <Content Include="Content\Images\bg.png" />
+    <Content Include="Content\Images\bg3.png" />
+    <Content Include="Content\Images\big.png" />
+    <Content Include="Content\Images\blue_glow.jpg" />
+    <Content Include="Content\Images\login\HeadBack.jpg" />
+    <Content Include="Content\Images\login\login-btn.gif" />
+    <Content Include="Content\Images\login\panel-c.gif" />
+    <Content Include="Content\Images\login\panel-f.gif" />
+    <Content Include="Content\Images\login\panel-h.gif" />
+    <Content Include="Content\Images\logo.gif" />
+    <Content Include="Content\Images\Program Files Folder.png" />
+    <Content Include="Content\Images\Xp-G5 006.png" />
+    <Content Include="Content\JQEasyUI\demo.css" />
+    <Content Include="Content\JQEasyUI\themes\black\accordion.css" />
+    <Content Include="Content\JQEasyUI\themes\black\calendar.css" />
+    <Content Include="Content\JQEasyUI\themes\black\combo.css" />
+    <Content Include="Content\JQEasyUI\themes\black\combobox.css" />
+    <Content Include="Content\JQEasyUI\themes\black\datagrid.css" />
+    <Content Include="Content\JQEasyUI\themes\black\datebox.css" />
+    <Content Include="Content\JQEasyUI\themes\black\dialog.css" />
+    <Content Include="Content\JQEasyUI\themes\black\easyui.css" />
+    <Content Include="Content\JQEasyUI\themes\black\images\accordion_arrows.png" />
+    <Content Include="Content\JQEasyUI\themes\black\images\blank.gif" />
+    <Content Include="Content\JQEasyUI\themes\black\images\calendar_arrows.png" />
+    <Content Include="Content\JQEasyUI\themes\black\images\combo_arrow.png" />
+    <Content Include="Content\JQEasyUI\themes\black\images\datagrid_icons.png" />
+    <Content Include="Content\JQEasyUI\themes\black\images\datebox_arrow.png" />
+    <Content Include="Content\JQEasyUI\themes\black\images\layout_arrows.png" />
+    <Content Include="Content\JQEasyUI\themes\black\images\linkbutton_bg.png" />
+    <Content Include="Content\JQEasyUI\themes\black\images\loading.gif" />
+    <Content Include="Content\JQEasyUI\themes\black\images\menu_arrows.png" />
+    <Content Include="Content\JQEasyUI\themes\black\images\messager_icons.png" />
+    <Content Include="Content\JQEasyUI\themes\black\images\pagination_icons.png" />
+    <Content Include="Content\JQEasyUI\themes\black\images\panel_tools.png" />
+    <Content Include="Content\JQEasyUI\themes\black\images\searchbox_button.png" />
+    <Content Include="Content\JQEasyUI\themes\black\images\slider_handle.png" />
+    <Content Include="Content\JQEasyUI\themes\black\images\spinner_arrows.png" />
+    <Content Include="Content\JQEasyUI\themes\black\images\tabs_icons.png" />
+    <Content Include="Content\JQEasyUI\themes\black\images\tree_icons.png" />
+    <Content Include="Content\JQEasyUI\themes\black\images\validatebox_warning.png" />
+    <Content Include="Content\JQEasyUI\themes\black\layout.css" />
+    <Content Include="Content\JQEasyUI\themes\black\linkbutton.css" />
+    <Content Include="Content\JQEasyUI\themes\black\menu.css" />
+    <Content Include="Content\JQEasyUI\themes\black\menubutton.css" />
+    <Content Include="Content\JQEasyUI\themes\black\messager.css" />
+    <Content Include="Content\JQEasyUI\themes\black\numberbox.css" />
+    <Content Include="Content\JQEasyUI\themes\black\pagination.css" />
+    <Content Include="Content\JQEasyUI\themes\black\panel.css" />
+    <Content Include="Content\JQEasyUI\themes\black\progressbar.css" />
+    <Content Include="Content\JQEasyUI\themes\black\propertygrid.css" />
+    <Content Include="Content\JQEasyUI\themes\black\searchbox.css" />
+    <Content Include="Content\JQEasyUI\themes\black\slider.css" />
+    <Content Include="Content\JQEasyUI\themes\black\spinner.css" />
+    <Content Include="Content\JQEasyUI\themes\black\splitbutton.css" />
+    <Content Include="Content\JQEasyUI\themes\black\tabs.css" />
+    <Content Include="Content\JQEasyUI\themes\black\textbox.css" />
+    <Content Include="Content\JQEasyUI\themes\black\tooltip.css" />
+    <Content Include="Content\JQEasyUI\themes\black\tree.css" />
+    <Content Include="Content\JQEasyUI\themes\black\validatebox.css" />
+    <Content Include="Content\JQEasyUI\themes\black\window.css" />
+    <Content Include="Content\JQEasyUI\themes\bootstrap\accordion.css" />
+    <Content Include="Content\JQEasyUI\themes\bootstrap\calendar.css" />
+    <Content Include="Content\JQEasyUI\themes\bootstrap\combo.css" />
+    <Content Include="Content\JQEasyUI\themes\bootstrap\combobox.css" />
+    <Content Include="Content\JQEasyUI\themes\bootstrap\datagrid.css" />
+    <Content Include="Content\JQEasyUI\themes\bootstrap\datebox.css" />
+    <Content Include="Content\JQEasyUI\themes\bootstrap\dialog.css" />
+    <Content Include="Content\JQEasyUI\themes\bootstrap\easyui.css" />
+    <Content Include="Content\JQEasyUI\themes\bootstrap\images\accordion_arrows.png" />
+    <Content Include="Content\JQEasyUI\themes\bootstrap\images\blank.gif" />
+    <Content Include="Content\JQEasyUI\themes\bootstrap\images\calendar_arrows.png" />
+    <Content Include="Content\JQEasyUI\themes\bootstrap\images\combo_arrow.png" />
+    <Content Include="Content\JQEasyUI\themes\bootstrap\images\datagrid_icons.png" />
+    <Content Include="Content\JQEasyUI\themes\bootstrap\images\datebox_arrow.png" />
+    <Content Include="Content\JQEasyUI\themes\bootstrap\images\layout_arrows.png" />
+    <Content Include="Content\JQEasyUI\themes\bootstrap\images\linkbutton_bg.png" />
+    <Content Include="Content\JQEasyUI\themes\bootstrap\images\loading.gif" />
+    <Content Include="Content\JQEasyUI\themes\bootstrap\images\menu_arrows.png" />
+    <Content Include="Content\JQEasyUI\themes\bootstrap\images\messager_icons.png" />
+    <Content Include="Content\JQEasyUI\themes\bootstrap\images\pagination_icons.png" />
+    <Content Include="Content\JQEasyUI\themes\bootstrap\images\panel_tools.png" />
+    <Content Include="Content\JQEasyUI\themes\bootstrap\images\searchbox_button.png" />
+    <Content Include="Content\JQEasyUI\themes\bootstrap\images\slider_handle.png" />
+    <Content Include="Content\JQEasyUI\themes\bootstrap\images\spinner_arrows.png" />
+    <Content Include="Content\JQEasyUI\themes\bootstrap\images\tabs_icons.png" />
+    <Content Include="Content\JQEasyUI\themes\bootstrap\images\tree_icons.png" />
+    <Content Include="Content\JQEasyUI\themes\bootstrap\images\validatebox_warning.png" />
+    <Content Include="Content\JQEasyUI\themes\bootstrap\layout.css" />
+    <Content Include="Content\JQEasyUI\themes\bootstrap\linkbutton.css" />
+    <Content Include="Content\JQEasyUI\themes\bootstrap\menu.css" />
+    <Content Include="Content\JQEasyUI\themes\bootstrap\menubutton.css" />
+    <Content Include="Content\JQEasyUI\themes\bootstrap\messager.css" />
+    <Content Include="Content\JQEasyUI\themes\bootstrap\numberbox.css" />
+    <Content Include="Content\JQEasyUI\themes\bootstrap\pagination.css" />
+    <Content Include="Content\JQEasyUI\themes\bootstrap\panel.css" />
+    <Content Include="Content\JQEasyUI\themes\bootstrap\progressbar.css" />
+    <Content Include="Content\JQEasyUI\themes\bootstrap\propertygrid.css" />
+    <Content Include="Content\JQEasyUI\themes\bootstrap\searchbox.css" />
+    <Content Include="Content\JQEasyUI\themes\bootstrap\slider.css" />
+    <Content Include="Content\JQEasyUI\themes\bootstrap\spinner.css" />
+    <Content Include="Content\JQEasyUI\themes\bootstrap\splitbutton.css" />
+    <Content Include="Content\JQEasyUI\themes\bootstrap\tabs.css" />
+    <Content Include="Content\JQEasyUI\themes\bootstrap\textbox.css" />
+    <Content Include="Content\JQEasyUI\themes\bootstrap\tooltip.css" />
+    <Content Include="Content\JQEasyUI\themes\bootstrap\tree.css" />
+    <Content Include="Content\JQEasyUI\themes\bootstrap\validatebox.css" />
+    <Content Include="Content\JQEasyUI\themes\bootstrap\window.css" />
+    <Content Include="Content\JQEasyUI\themes\default\accordion.css" />
+    <Content Include="Content\JQEasyUI\themes\default\calendar.css" />
+    <Content Include="Content\JQEasyUI\themes\default\combo.css" />
+    <Content Include="Content\JQEasyUI\themes\default\combobox.css" />
+    <Content Include="Content\JQEasyUI\themes\default\datagrid.css" />
+    <Content Include="Content\JQEasyUI\themes\default\datebox.css" />
+    <Content Include="Content\JQEasyUI\themes\default\dialog.css" />
+    <Content Include="Content\JQEasyUI\themes\default\easyui.css" />
+    <Content Include="Content\JQEasyUI\themes\default\icon.css" />
+    <Content Include="Content\JQEasyUI\themes\default\images\accordion_arrows.png" />
+    <Content Include="Content\JQEasyUI\themes\default\images\blank.gif" />
+    <Content Include="Content\JQEasyUI\themes\default\images\calendar_arrows.png" />
+    <Content Include="Content\JQEasyUI\themes\default\images\combo_arrow.png" />
+    <Content Include="Content\JQEasyUI\themes\default\images\datagrid_icons.png" />
+    <Content Include="Content\JQEasyUI\themes\default\images\datebox_arrow.png" />
+    <Content Include="Content\JQEasyUI\themes\default\images\layout_arrows.png" />
+    <Content Include="Content\JQEasyUI\themes\default\images\linkbutton_bg.png" />
+    <Content Include="Content\JQEasyUI\themes\default\images\loading.gif" />
+    <Content Include="Content\JQEasyUI\themes\default\images\menu_arrows.png" />
+    <Content Include="Content\JQEasyUI\themes\default\images\messager_icons.png" />
+    <Content Include="Content\JQEasyUI\themes\default\images\pagination_icons.png" />
+    <Content Include="Content\JQEasyUI\themes\default\images\panel_tools.png" />
+    <Content Include="Content\JQEasyUI\themes\default\images\searchbox_button.png" />
+    <Content Include="Content\JQEasyUI\themes\default\images\slider_handle.png" />
+    <Content Include="Content\JQEasyUI\themes\default\images\spinner_arrows.png" />
+    <Content Include="Content\JQEasyUI\themes\default\images\tabs_icons.png" />
+    <Content Include="Content\JQEasyUI\themes\default\images\tree_icons.png" />
+    <Content Include="Content\JQEasyUI\themes\default\images\validatebox_warning.png" />
+    <Content Include="Content\JQEasyUI\themes\default\layout.css" />
+    <Content Include="Content\JQEasyUI\themes\default\linkbutton.css" />
+    <Content Include="Content\JQEasyUI\themes\default\menu.css" />
+    <Content Include="Content\JQEasyUI\themes\default\menubutton.css" />
+    <Content Include="Content\JQEasyUI\themes\default\messager.css" />
+    <Content Include="Content\JQEasyUI\themes\default\numberbox.css" />
+    <Content Include="Content\JQEasyUI\themes\default\pagination.css" />
+    <Content Include="Content\JQEasyUI\themes\default\panel.css" />
+    <Content Include="Content\JQEasyUI\themes\default\progressbar.css" />
+    <Content Include="Content\JQEasyUI\themes\default\propertygrid.css" />
+    <Content Include="Content\JQEasyUI\themes\default\searchbox.css" />
+    <Content Include="Content\JQEasyUI\themes\default\slider.css" />
+    <Content Include="Content\JQEasyUI\themes\default\spinner.css" />
+    <Content Include="Content\JQEasyUI\themes\default\splitbutton.css" />
+    <Content Include="Content\JQEasyUI\themes\default\tabs.css" />
+    <Content Include="Content\JQEasyUI\themes\default\textbox.css" />
+    <Content Include="Content\JQEasyUI\themes\default\tooltip.css" />
+    <Content Include="Content\JQEasyUI\themes\default\tree.css" />
+    <Content Include="Content\JQEasyUI\themes\default\validatebox.css" />
+    <Content Include="Content\JQEasyUI\themes\default\window.css" />
+    <Content Include="Content\JQEasyUI\themes\gray\accordion.css" />
+    <Content Include="Content\JQEasyUI\themes\gray\calendar.css" />
+    <Content Include="Content\JQEasyUI\themes\gray\combo.css" />
+    <Content Include="Content\JQEasyUI\themes\gray\combobox.css" />
+    <Content Include="Content\JQEasyUI\themes\gray\datagrid.css" />
+    <Content Include="Content\JQEasyUI\themes\gray\datebox.css" />
+    <Content Include="Content\JQEasyUI\themes\gray\dialog.css" />
+    <Content Include="Content\JQEasyUI\themes\gray\easyui.css" />
+    <Content Include="Content\JQEasyUI\themes\gray\images\accordion_arrows.png" />
+    <Content Include="Content\JQEasyUI\themes\gray\images\blank.gif" />
+    <Content Include="Content\JQEasyUI\themes\gray\images\calendar_arrows.png" />
+    <Content Include="Content\JQEasyUI\themes\gray\images\combo_arrow.png" />
+    <Content Include="Content\JQEasyUI\themes\gray\images\datagrid_icons.png" />
+    <Content Include="Content\JQEasyUI\themes\gray\images\datebox_arrow.png" />
+    <Content Include="Content\JQEasyUI\themes\gray\images\layout_arrows.png" />
+    <Content Include="Content\JQEasyUI\themes\gray\images\linkbutton_bg.png" />
+    <Content Include="Content\JQEasyUI\themes\gray\images\loading.gif" />
+    <Content Include="Content\JQEasyUI\themes\gray\images\menu_arrows.png" />
+    <Content Include="Content\JQEasyUI\themes\gray\images\messager_icons.png" />
+    <Content Include="Content\JQEasyUI\themes\gray\images\pagination_icons.png" />
+    <Content Include="Content\JQEasyUI\themes\gray\images\panel_tools.png" />
+    <Content Include="Content\JQEasyUI\themes\gray\images\searchbox_button.png" />
+    <Content Include="Content\JQEasyUI\themes\gray\images\slider_handle.png" />
+    <Content Include="Content\JQEasyUI\themes\gray\images\spinner_arrows.png" />
+    <Content Include="Content\JQEasyUI\themes\gray\images\tabs_icons.png" />
+    <Content Include="Content\JQEasyUI\themes\gray\images\tree_icons.png" />
+    <Content Include="Content\JQEasyUI\themes\gray\images\validatebox_warning.png" />
+    <Content Include="Content\JQEasyUI\themes\gray\layout.css" />
+    <Content Include="Content\JQEasyUI\themes\gray\linkbutton.css" />
+    <Content Include="Content\JQEasyUI\themes\gray\menu.css" />
+    <Content Include="Content\JQEasyUI\themes\gray\menubutton.css" />
+    <Content Include="Content\JQEasyUI\themes\gray\messager.css" />
+    <Content Include="Content\JQEasyUI\themes\gray\numberbox.css" />
+    <Content Include="Content\JQEasyUI\themes\gray\pagination.css" />
+    <Content Include="Content\JQEasyUI\themes\gray\panel.css" />
+    <Content Include="Content\JQEasyUI\themes\gray\progressbar.css" />
+    <Content Include="Content\JQEasyUI\themes\gray\propertygrid.css" />
+    <Content Include="Content\JQEasyUI\themes\gray\searchbox.css" />
+    <Content Include="Content\JQEasyUI\themes\gray\slider.css" />
+    <Content Include="Content\JQEasyUI\themes\gray\spinner.css" />
+    <Content Include="Content\JQEasyUI\themes\gray\splitbutton.css" />
+    <Content Include="Content\JQEasyUI\themes\gray\tabs.css" />
+    <Content Include="Content\JQEasyUI\themes\gray\textbox.css" />
+    <Content Include="Content\JQEasyUI\themes\gray\tooltip.css" />
+    <Content Include="Content\JQEasyUI\themes\gray\tree.css" />
+    <Content Include="Content\JQEasyUI\themes\gray\validatebox.css" />
+    <Content Include="Content\JQEasyUI\themes\gray\window.css" />
+    <Content Include="Content\JQEasyUI\themes\icon.css" />
+    <Content Include="Content\JQEasyUI\themes\icons\back.png" />
+    <Content Include="Content\JQEasyUI\themes\icons\blank.gif" />
+    <Content Include="Content\JQEasyUI\themes\icons\cancel.png" />
+    <Content Include="Content\JQEasyUI\themes\icons\cut.png" />
+    <Content Include="Content\JQEasyUI\themes\icons\edit_add.png" />
+    <Content Include="Content\JQEasyUI\themes\icons\edit_remove.png" />
+    <Content Include="Content\JQEasyUI\themes\icons\filesave.png" />
+    <Content Include="Content\JQEasyUI\themes\icons\filter.png" />
+    <Content Include="Content\JQEasyUI\themes\icons\help.png" />
+    <Content Include="Content\JQEasyUI\themes\icons\large_chart.png" />
+    <Content Include="Content\JQEasyUI\themes\icons\large_clipart.png" />
+    <Content Include="Content\JQEasyUI\themes\icons\large_picture.png" />
+    <Content Include="Content\JQEasyUI\themes\icons\large_shapes.png" />
+    <Content Include="Content\JQEasyUI\themes\icons\large_smartart.png" />
+    <Content Include="Content\JQEasyUI\themes\icons\mini_add.png" />
+    <Content Include="Content\JQEasyUI\themes\icons\mini_edit.png" />
+    <Content Include="Content\JQEasyUI\themes\icons\mini_refresh.png" />
+    <Content Include="Content\JQEasyUI\themes\icons\no.png" />
+    <Content Include="Content\JQEasyUI\themes\icons\ok.png" />
+    <Content Include="Content\JQEasyUI\themes\icons\pencil.png" />
+    <Content Include="Content\JQEasyUI\themes\icons\print.png" />
+    <Content Include="Content\JQEasyUI\themes\icons\redo.png" />
+    <Content Include="Content\JQEasyUI\themes\icons\reload.png" />
+    <Content Include="Content\JQEasyUI\themes\icons\search.png" />
+    <Content Include="Content\JQEasyUI\themes\icons\sum.png" />
+    <Content Include="Content\JQEasyUI\themes\icons\tip.png" />
+    <Content Include="Content\JQEasyUI\themes\icons\undo.png" />
+    <Content Include="Content\JQEasyUI\themes\metro\accordion.css" />
+    <Content Include="Content\JQEasyUI\themes\metro\calendar.css" />
+    <Content Include="Content\JQEasyUI\themes\metro\combo.css" />
+    <Content Include="Content\JQEasyUI\themes\metro\combobox.css" />
+    <Content Include="Content\JQEasyUI\themes\metro\datagrid.css" />
+    <Content Include="Content\JQEasyUI\themes\metro\datebox.css" />
+    <Content Include="Content\JQEasyUI\themes\metro\dialog.css" />
+    <Content Include="Content\JQEasyUI\themes\metro\easyui.css" />
+    <Content Include="Content\JQEasyUI\themes\metro\images\accordion_arrows.png" />
+    <Content Include="Content\JQEasyUI\themes\metro\images\blank.gif" />
+    <Content Include="Content\JQEasyUI\themes\metro\images\calendar_arrows.png" />
+    <Content Include="Content\JQEasyUI\themes\metro\images\combo_arrow.png" />
+    <Content Include="Content\JQEasyUI\themes\metro\images\datagrid_icons.png" />
+    <Content Include="Content\JQEasyUI\themes\metro\images\datebox_arrow.png" />
+    <Content Include="Content\JQEasyUI\themes\metro\images\layout_arrows.png" />
+    <Content Include="Content\JQEasyUI\themes\metro\images\linkbutton_bg.png" />
+    <Content Include="Content\JQEasyUI\themes\metro\images\loading.gif" />
+    <Content Include="Content\JQEasyUI\themes\metro\images\menu_arrows.png" />
+    <Content Include="Content\JQEasyUI\themes\metro\images\messager_icons.png" />
+    <Content Include="Content\JQEasyUI\themes\metro\images\pagination_icons.png" />
+    <Content Include="Content\JQEasyUI\themes\metro\images\panel_tools.png" />
+    <Content Include="Content\JQEasyUI\themes\metro\images\searchbox_button.png" />
+    <Content Include="Content\JQEasyUI\themes\metro\images\slider_handle.png" />
+    <Content Include="Content\JQEasyUI\themes\metro\images\spinner_arrows.png" />
+    <Content Include="Content\JQEasyUI\themes\metro\images\tabs_icons.png" />
+    <Content Include="Content\JQEasyUI\themes\metro\images\tree_icons.png" />
+    <Content Include="Content\JQEasyUI\themes\metro\images\validatebox_warning.png" />
+    <Content Include="Content\JQEasyUI\themes\metro\layout.css" />
+    <Content Include="Content\JQEasyUI\themes\metro\linkbutton.css" />
+    <Content Include="Content\JQEasyUI\themes\metro\menu.css" />
+    <Content Include="Content\JQEasyUI\themes\metro\menubutton.css" />
+    <Content Include="Content\JQEasyUI\themes\metro\messager.css" />
+    <Content Include="Content\JQEasyUI\themes\metro\numberbox.css" />
+    <Content Include="Content\JQEasyUI\themes\metro\pagination.css" />
+    <Content Include="Content\JQEasyUI\themes\metro\panel.css" />
+    <Content Include="Content\JQEasyUI\themes\metro\progressbar.css" />
+    <Content Include="Content\JQEasyUI\themes\metro\propertygrid.css" />
+    <Content Include="Content\JQEasyUI\themes\metro\searchbox.css" />
+    <Content Include="Content\JQEasyUI\themes\metro\slider.css" />
+    <Content Include="Content\JQEasyUI\themes\metro\spinner.css" />
+    <Content Include="Content\JQEasyUI\themes\metro\splitbutton.css" />
+    <Content Include="Content\JQEasyUI\themes\metro\tabs.css" />
+    <Content Include="Content\JQEasyUI\themes\metro\textbox.css" />
+    <Content Include="Content\JQEasyUI\themes\metro\tooltip.css" />
+    <Content Include="Content\JQEasyUI\themes\metro\tree.css" />
+    <Content Include="Content\JQEasyUI\themes\metro\validatebox.css" />
+    <Content Include="Content\JQEasyUI\themes\metro\window.css" />
+    <Content Include="Content\LgUI\js\core\base.js" />
+    <Content Include="Content\LgUI\js\jquery-1.3.2.min.js" />
+    <Content Include="Content\LgUI\js\ligerui.all.js" />
+    <Content Include="Content\LgUI\js\ligerui.min.js" />
+    <Content Include="Content\LgUI\js\plugins\ligerAccordion.js" />
+    <Content Include="Content\LgUI\js\plugins\ligerButton.js" />
+    <Content Include="Content\LgUI\js\plugins\ligerCheckBox.js" />
+    <Content Include="Content\LgUI\js\plugins\ligerComboBox.js" />
+    <Content Include="Content\LgUI\js\plugins\ligerDateEditor.js" />
+    <Content Include="Content\LgUI\js\plugins\ligerDialog.js" />
+    <Content Include="Content\LgUI\js\plugins\ligerDrag.js" />
+    <Content Include="Content\LgUI\js\plugins\ligerEasyTab.js" />
+    <Content Include="Content\LgUI\js\plugins\ligerFilter.js" />
+    <Content Include="Content\LgUI\js\plugins\ligerForm.js" />
+    <Content Include="Content\LgUI\js\plugins\ligerGrid.js" />
+    <Content Include="Content\LgUI\js\plugins\ligerLayout.js" />
+    <Content Include="Content\LgUI\js\plugins\ligerMenu.js" />
+    <Content Include="Content\LgUI\js\plugins\ligerMenuBar.js" />
+    <Content Include="Content\LgUI\js\plugins\ligerMessageBox.js" />
+    <Content Include="Content\LgUI\js\plugins\ligerRadio.js" />
+    <Content Include="Content\LgUI\js\plugins\ligerResizable.js" />
+    <Content Include="Content\LgUI\js\plugins\ligerSpinner.js" />
+    <Content Include="Content\LgUI\js\plugins\ligerTab.js" />
+    <Content Include="Content\LgUI\js\plugins\ligerTextBox.js" />
+    <Content Include="Content\LgUI\js\plugins\ligerTip.js" />
+    <Content Include="Content\LgUI\js\plugins\ligerToolBar.js" />
+    <Content Include="Content\LgUI\js\plugins\ligerTree.js" />
+    <Content Include="Content\LgUI\js\plugins\ligerWindow.js" />
+    <Content Include="Content\LgUI\skins\Aqua\css\ligerui-all.css" />
+    <Content Include="Content\LgUI\skins\Aqua\css\ligerui-common.css" />
+    <Content Include="Content\LgUI\skins\Aqua\css\ligerui-dialog.css" />
+    <Content Include="Content\LgUI\skins\Aqua\css\ligerui-form.css" />
+    <Content Include="Content\LgUI\skins\Aqua\css\ligerui-grid.css" />
+    <Content Include="Content\LgUI\skins\Aqua\css\ligerui-layout.css" />
+    <Content Include="Content\LgUI\skins\Aqua\css\ligerui-menu.css" />
+    <Content Include="Content\LgUI\skins\Aqua\css\ligerui-tab.css" />
+    <Content Include="Content\LgUI\skins\Aqua\css\ligerui-tree.css" />
+    <Content Include="Content\LgUI\skins\Aqua\images\common\bigloading.gif" />
+    <Content Include="Content\LgUI\skins\Aqua\images\common\button-disabled.gif" />
+    <Content Include="Content\LgUI\skins\Aqua\images\common\button-over.gif" />
+    <Content Include="Content\LgUI\skins\Aqua\images\common\button.gif" />
+    <Content Include="Content\LgUI\skins\Aqua\images\common\drop-icons.gif" />
+    <Content Include="Content\LgUI\skins\Aqua\images\common\exclamation.gif" />
+    <Content Include="Content\LgUI\skins\Aqua\images\common\invalid-line.gif" />
+    <Content Include="Content\LgUI\skins\Aqua\images\common\loading.gif" />
+    <Content Include="Content\LgUI\skins\Aqua\images\common\table.png" />
+    <Content Include="Content\LgUI\skins\Aqua\images\common\toggle.gif" />
+    <Content Include="Content\LgUI\skins\Aqua\images\controls\bg-panel-title-over.gif" />
+    <Content Include="Content\LgUI\skins\Aqua\images\controls\bg-panel-title-pressed.gif" />
+    <Content Include="Content\LgUI\skins\Aqua\images\controls\bg-panel-title.gif" />
+    <Content Include="Content\LgUI\skins\Aqua\images\controls\bg-tab-title-over.gif" />
+    <Content Include="Content\LgUI\skins\Aqua\images\controls\bg-tab-title-pressed.gif" />
+    <Content Include="Content\LgUI\skins\Aqua\images\controls\bg-tab-title.gif" />
+    <Content Include="Content\LgUI\skins\Aqua\images\controls\bg-text.gif" />
+    <Content Include="Content\LgUI\skins\Aqua\images\controls\bg-trigger-over.gif" />
+    <Content Include="Content\LgUI\skins\Aqua\images\controls\bg-trigger-pressed.gif" />
+    <Content Include="Content\LgUI\skins\Aqua\images\controls\bg-trigger.gif" />
+    <Content Include="Content\LgUI\skins\Aqua\images\controls\btn-l.gif" />
+    <Content Include="Content\LgUI\skins\Aqua\images\controls\btn-r.gif" />
+    <Content Include="Content\LgUI\skins\Aqua\images\controls\btn.gif" />
+    <Content Include="Content\LgUI\skins\Aqua\images\controls\button-bg-over.gif" />
+    <Content Include="Content\LgUI\skins\Aqua\images\controls\button-bg.gif" />
+    <Content Include="Content\LgUI\skins\Aqua\images\controls\checkbox.gif" />
+    <Content Include="Content\LgUI\skins\Aqua\images\controls\dateeditor-bar-bg.gif" />
+    <Content Include="Content\LgUI\skins\Aqua\images\controls\dateeditor-header-bg.gif" />
+    <Content Include="Content\LgUI\skins\Aqua\images\controls\radio.gif" />
+    <Content Include="Content\LgUI\skins\Aqua\images\dateeditor\date.gif" />
+    <Content Include="Content\LgUI\skins\Aqua\images\dateeditor\icon-first.gif" />
+    <Content Include="Content\LgUI\skins\Aqua\images\dateeditor\icon-last.gif" />
+    <Content Include="Content\LgUI\skins\Aqua\images\dateeditor\icon-next.gif" />
+    <Content Include="Content\LgUI\skins\Aqua\images\dateeditor\icon-prev.gif" />
+    <Content Include="Content\LgUI\skins\Aqua\images\form\verify-corner.gif" />
+    <Content Include="Content\LgUI\skins\Aqua\images\grid\grid-checkbox-checked.gif" />
+    <Content Include="Content\LgUI\skins\Aqua\images\grid\grid-checkbox.gif" />
+    <Content Include="Content\LgUI\skins\Aqua\images\grid\grid-detail-close.gif" />
+    <Content Include="Content\LgUI\skins\Aqua\images\grid\grid-detail-open.gif" />
+    <Content Include="Content\LgUI\skins\Aqua\images\grid\grid-tree-close.gif" />
+    <Content Include="Content\LgUI\skins\Aqua\images\grid\grid-tree-open.gif" />
+    <Content Include="Content\LgUI\skins\Aqua\images\grid\header-bg-over.gif" />
+    <Content Include="Content\LgUI\skins\Aqua\images\grid\header-bg.gif" />
+    <Content Include="Content\LgUI\skins\Aqua\images\grid\header2-bg.jpg" />
+    <Content Include="Content\LgUI\skins\Aqua\images\grid\popup-line.gif" />
+    <Content Include="Content\LgUI\skins\Aqua\images\grid\popup-row-over.gif" />
+    <Content Include="Content\LgUI\skins\Aqua\images\icon\bar-button-over.gif" />
+    <Content Include="Content\LgUI\skins\Aqua\images\icon\checkbox-checked.gif" />
+    <Content Include="Content\LgUI\skins\Aqua\images\icon\checkbox.gif" />
+    <Content Include="Content\LgUI\skins\Aqua\images\icon\cross.gif" />
+    <Content Include="Content\LgUI\skins\Aqua\images\icon\icon-close-over.gif" />
+    <Content Include="Content\LgUI\skins\Aqua\images\icon\icon-close.gif" />
+    <Content Include="Content\LgUI\skins\Aqua\images\icon\icon-down.gif" />
+    <Content Include="Content\LgUI\skins\Aqua\images\icon\icon-drop.gif" />
+    <Content Include="Content\LgUI\skins\Aqua\images\icon\icon-edited.gif" />
+    <Content Include="Content\LgUI\skins\Aqua\images\icon\icon-first.gif" />
+    <Content Include="Content\LgUI\skins\Aqua\images\icon\icon-last.gif" />
+    <Content Include="Content\LgUI\skins\Aqua\images\icon\icon-line.gif" />
+    <Content Include="Content\LgUI\skins\Aqua\images\icon\icon-load.gif" />
+    <Content Include="Content\LgUI\skins\Aqua\images\icon\icon-next.gif" />
+    <Content Include="Content\LgUI\skins\Aqua\images\icon\icon-prev.gif" />
+    <Content Include="Content\LgUI\skins\Aqua\images\icon\icon-select.gif" />
+    <Content Include="Content\LgUI\skins\Aqua\images\icon\icon-sort-asc.gif" />
+    <Content Include="Content\LgUI\skins\Aqua\images\icon\icon-sort-desc.gif" />
+    <Content Include="Content\LgUI\skins\Aqua\images\icon\icon-unselect.gif" />
+    <Content Include="Content\LgUI\skins\Aqua\images\icon\icon-up.gif" />
+    <Content Include="Content\LgUI\skins\Aqua\images\icon\spr_icons.gif" />
+    <Content Include="Content\LgUI\skins\Aqua\images\layout\accordion-content.gif" />
+    <Content Include="Content\LgUI\skins\Aqua\images\layout\accordion-header-over.gif" />
+    <Content Include="Content\LgUI\skins\Aqua\images\layout\accordion-header.gif" />
+    <Content Include="Content\LgUI\skins\Aqua\images\layout\closeAll.gif" />
+    <Content Include="Content\LgUI\skins\Aqua\images\layout\layout-header-over.gif" />
+    <Content Include="Content\LgUI\skins\Aqua\images\layout\layout-header.gif" />
+    <Content Include="Content\LgUI\skins\Aqua\images\layout\layout-sidebar-header.gif" />
+    <Content Include="Content\LgUI\skins\Aqua\images\layout\mini-bottom.gif" />
+    <Content Include="Content\LgUI\skins\Aqua\images\layout\mini-left.gif" />
+    <Content Include="Content\LgUI\skins\Aqua\images\layout\mini-right.gif" />
+    <Content Include="Content\LgUI\skins\Aqua\images\layout\mini-top.gif" />
+    <Content Include="Content\LgUI\skins\Aqua\images\layout\panel-content.gif" />
+    <Content Include="Content\LgUI\skins\Aqua\images\layout\panel-header-over.gif" />
+    <Content Include="Content\LgUI\skins\Aqua\images\layout\panel-header.gif" />
+    <Content Include="Content\LgUI\skins\Aqua\images\layout\panel-header2.gif" />
+    <Content Include="Content\LgUI\skins\Aqua\images\layout\tabs-bg.gif" />
+    <Content Include="Content\LgUI\skins\Aqua\images\layout\tabs-item-bg.gif" />
+    <Content Include="Content\LgUI\skins\Aqua\images\layout\tabs-item-left-bg.gif" />
+    <Content Include="Content\LgUI\skins\Aqua\images\layout\tabs-item-over-bg.gif" />
+    <Content Include="Content\LgUI\skins\Aqua\images\layout\tabs-item-right-bg.gif" />
+    <Content Include="Content\LgUI\skins\Aqua\images\layout\tabs-tools.gif" />
+    <Content Include="Content\LgUI\skins\Aqua\images\layout\togglebar.gif" />
+    <Content Include="Content\LgUI\skins\Aqua\images\menu\menu-item-arrow.gif" />
+    <Content Include="Content\LgUI\skins\Aqua\images\menu\menu-item-down.gif" />
+    <Content Include="Content\LgUI\skins\Aqua\images\menu\menu-item-over-l.gif" />
+    <Content Include="Content\LgUI\skins\Aqua\images\menu\menu-item-over-m.gif" />
+    <Content Include="Content\LgUI\skins\Aqua\images\menu\menu-item-over-r.gif" />
+    <Content Include="Content\LgUI\skins\Aqua\images\menu\menu-line-x.gif" />
+    <Content Include="Content\LgUI\skins\Aqua\images\menu\menu-line-y.gif" />
+    <Content Include="Content\LgUI\skins\Aqua\images\panel\bar-bg.gif" />
+    <Content Include="Content\LgUI\skins\Aqua\images\panel\header-bg.gif" />
+    <Content Include="Content\LgUI\skins\Aqua\images\panel\header-bg.jpg" />
+    <Content Include="Content\LgUI\skins\Aqua\images\panel\header2-bg.jpg" />
+    <Content Include="Content\LgUI\skins\Aqua\images\panel\panel-btn-l.gif" />
+    <Content Include="Content\LgUI\skins\Aqua\images\panel\panel-btn-r.gif" />
+    <Content Include="Content\LgUI\skins\Aqua\images\panel\panel-btn.gif" />
+    <Content Include="Content\LgUI\skins\Aqua\images\panel\panel-header.gif" />
+    <Content Include="Content\LgUI\skins\Aqua\images\panel\panel-menu-item-down.gif" />
+    <Content Include="Content\LgUI\skins\Aqua\images\panel\panel-menu.gif" />
+    <Content Include="Content\LgUI\skins\Aqua\images\panel\panel-toolbar.gif" />
+    <Content Include="Content\LgUI\skins\Aqua\images\panel\panel-tools.gif" />
+    <Content Include="Content\LgUI\skins\Aqua\images\tree\folder-open.gif" />
+    <Content Include="Content\LgUI\skins\Aqua\images\tree\folder.gif" />
+    <Content Include="Content\LgUI\skins\Aqua\images\tree\loading.gif" />
+    <Content Include="Content\LgUI\skins\Aqua\images\tree\nodeloading.gif" />
+    <Content Include="Content\LgUI\skins\Aqua\images\tree\nodeloading2.gif" />
+    <Content Include="Content\LgUI\skins\Aqua\images\tree\nodeloading3.gif" />
+    <Content Include="Content\LgUI\skins\Aqua\images\tree\nodeloading4.gif" />
+    <Content Include="Content\LgUI\skins\Aqua\images\tree\tree-leaf.gif" />
+    <Content Include="Content\LgUI\skins\Aqua\images\tree\tree-level.gif" />
+    <Content Include="Content\LgUI\skins\Aqua\images\tree\tree-noline.gif" />
+    <Content Include="Content\LgUI\skins\Aqua\images\tree\tree-status-close.gif" />
+    <Content Include="Content\LgUI\skins\Aqua\images\tree\tree-status-open.gif" />
+    <Content Include="Content\LgUI\skins\Aqua\images\tree\tree-status.gif" />
+    <Content Include="Content\LgUI\skins\Aqua\images\tree\tree.gif" />
+    <Content Include="Content\LgUI\skins\Aqua\images\ui\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\LgUI\skins\Aqua\images\ui\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\LgUI\skins\Aqua\images\ui\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\LgUI\skins\Aqua\images\ui\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\LgUI\skins\Aqua\images\ui\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\LgUI\skins\Aqua\images\ui\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\LgUI\skins\Aqua\images\win\box-icons.gif" />
+    <Content Include="Content\LgUI\skins\Aqua\images\win\box.gif" />
+    <Content Include="Content\LgUI\skins\Aqua\images\win\dialog-bc.gif" />
+    <Content Include="Content\LgUI\skins\Aqua\images\win\dialog-icons.gif" />
+    <Content Include="Content\LgUI\skins\Aqua\images\win\dialog-tc.gif" />
+    <Content Include="Content\LgUI\skins\Aqua\images\win\dialog-winbtns.gif" />
+    <Content Include="Content\LgUI\skins\Aqua\images\win\dialog.gif" />
+    <Content Include="Content\LgUI\skins\Aqua\images\win\dialogbtn.gif" />
+    <Content Include="Content\LgUI\skins\Aqua\images\win\taskbar-task.gif" />
+    <Content Include="Content\LgUI\skins\Aqua\images\win\taskbar.gif" />
+    <Content Include="Content\LgUI\skins\Aqua\images\win\taskbar.png" />
+    <Content Include="Content\LgUI\skins\Aqua\images\win\taskicon.gif" />
+    <Content Include="Content\LgUI\skins\Gray\css\all.css" />
+    <Content Include="Content\LgUI\skins\Gray\css\common.css" />
+    <Content Include="Content\LgUI\skins\Gray\css\dialog.css" />
+    <Content Include="Content\LgUI\skins\Gray\css\form.css" />
+    <Content Include="Content\LgUI\skins\Gray\css\grid.css" />
+    <Content Include="Content\LgUI\skins\Gray\css\layout.css" />
+    <Content Include="Content\LgUI\skins\Gray\css\tab.css" />
+    <Content Include="Content\LgUI\skins\icons\add.gif" />
+    <Content Include="Content\LgUI\skins\icons\archives.gif" />
+    <Content Include="Content\LgUI\skins\icons\attibutes.gif" />
+    <Content Include="Content\LgUI\skins\icons\back.gif" />
+    <Content Include="Content\LgUI\skins\icons\bluebook.gif" />
+    <Content Include="Content\LgUI\skins\icons\bookpen.gif" />
+    <Content Include="Content\LgUI\skins\icons\busy.gif" />
+    <Content Include="Content\LgUI\skins\icons\calendar.gif" />
+    <Content Include="Content\LgUI\skins\icons\candle.gif" />
+    <Content Include="Content\LgUI\skins\icons\coffee.gif" />
+    <Content Include="Content\LgUI\skins\icons\comment.gif" />
+    <Content Include="Content\LgUI\skins\icons\communication.gif" />
+    <Content Include="Content\LgUI\skins\icons\config.gif" />
+    <Content Include="Content\LgUI\skins\icons\customers.gif" />
+    <Content Include="Content\LgUI\skins\icons\cut.gif" />
+    <Content Include="Content\LgUI\skins\icons\database.gif" />
+    <Content Include="Content\LgUI\skins\icons\delete.gif" />
+    <Content Include="Content\LgUI\skins\icons\discuss.gif" />
+    <Content Include="Content\LgUI\skins\icons\edit.gif" />
+    <Content Include="Content\LgUI\skins\icons\graywarn.gif" />
+    <Content Include="Content\LgUI\skins\icons\greenwarn.gif" />
+    <Content Include="Content\LgUI\skins\icons\help.gif" />
+    <Content Include="Content\LgUI\skins\icons\home.gif" />
+    <Content Include="Content\LgUI\skins\icons\lock.gif" />
+    <Content Include="Content\LgUI\skins\icons\logout.gif" />
+    <Content Include="Content\LgUI\skins\icons\mailbox.gif" />
+    <Content Include="Content\LgUI\skins\icons\memeber.gif" />
+    <Content Include="Content\LgUI\skins\icons\modify.gif" />
+    <Content Include="Content\LgUI\skins\icons\msn.gif" />
+    <Content Include="Content\LgUI\skins\icons\myaccount.gif" />
+    <Content Include="Content\LgUI\skins\icons\ok.gif" />
+    <Content Include="Content\LgUI\skins\icons\outbox.gif" />
+    <Content Include="Content\LgUI\skins\icons\pager.gif" />
+    <Content Include="Content\LgUI\skins\icons\photograph.gif" />
+    <Content Include="Content\LgUI\skins\icons\plus.gif" />
+    <Content Include="Content\LgUI\skins\icons\prev.gif" />
+    <Content Include="Content\LgUI\skins\icons\print.gif" />
+    <Content Include="Content\LgUI\skins\icons\process.gif" />
+    <Content Include="Content\LgUI\skins\icons\qq.gif" />
+    <Content Include="Content\LgUI\skins\icons\refresh.gif" />
+    <Content Include="Content\LgUI\skins\icons\right.gif" />
+    <Content Include="Content\LgUI\skins\icons\role.gif" />
+    <Content Include="Content\LgUI\skins\icons\save-disabled.gif" />
+    <Content Include="Content\LgUI\skins\icons\save.gif" />
+    <Content Include="Content\LgUI\skins\icons\search.gif" />
+    <Content Include="Content\LgUI\skins\icons\search2.gif" />
+    <Content Include="Content\LgUI\skins\icons\settings.gif" />
+    <Content Include="Content\LgUI\skins\icons\true.gif" />
+    <Content Include="Content\LgUI\skins\icons\up.gif" />
+    <Content Include="Content\LgUI\skins\ligerui-icons.css" />
+    <Content Include="Content\LgUI\skins\Silvery\css\form.css" />
+    <Content Include="Content\LgUI\skins\Silvery\css\grid.css" />
+    <Content Include="Content\LgUI\skins\Silvery\css\layout.css" />
+    <Content Include="Content\LgUI\skins\Silvery\css\style.css" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Content\zTreeStyle\img\checkbox.png" />
+    <Content Include="Content\zTreeStyle\img\edit.png" />
+    <Content Include="Content\zTreeStyle\img\flag\10.png" />
+    <Content Include="Content\zTreeStyle\img\flag\1_close.png" />
+    <Content Include="Content\zTreeStyle\img\flag\1_open.png" />
+    <Content Include="Content\zTreeStyle\img\flag\2.png" />
+    <Content Include="Content\zTreeStyle\img\flag\3.png" />
+    <Content Include="Content\zTreeStyle\img\flag\4.png" />
+    <Content Include="Content\zTreeStyle\img\flag\5.png" />
+    <Content Include="Content\zTreeStyle\img\flag\6.png" />
+    <Content Include="Content\zTreeStyle\img\flag\7.png" />
+    <Content Include="Content\zTreeStyle\img\flag\8.png" />
+    <Content Include="Content\zTreeStyle\img\flag\9.png" />
+    <Content Include="Content\zTreeStyle\img\folder_Close.gif" />
+    <Content Include="Content\zTreeStyle\img\folder_Open.gif" />
+    <Content Include="Content\zTreeStyle\img\line_bottom.gif" />
+    <Content Include="Content\zTreeStyle\img\line_center.gif" />
+    <Content Include="Content\zTreeStyle\img\line_conn.gif" />
+    <Content Include="Content\zTreeStyle\img\line_top.gif" />
+    <Content Include="Content\zTreeStyle\img\loading.gif" />
+    <Content Include="Content\zTreeStyle\img\minus_bottom.gif" />
+    <Content Include="Content\zTreeStyle\img\minus_center.gif" />
+    <Content Include="Content\zTreeStyle\img\minus_noLine.gif" />
+    <Content Include="Content\zTreeStyle\img\minus_root.gif" />
+    <Content Include="Content\zTreeStyle\img\minus_top.gif" />
+    <Content Include="Content\zTreeStyle\img\moveArrow.png" />
+    <Content Include="Content\zTreeStyle\img\page.gif" />
+    <Content Include="Content\zTreeStyle\img\plus_bottom.gif" />
+    <Content Include="Content\zTreeStyle\img\plus_center.gif" />
+    <Content Include="Content\zTreeStyle\img\plus_noLine.gif" />
+    <Content Include="Content\zTreeStyle\img\plus_root.gif" />
+    <Content Include="Content\zTreeStyle\img\plus_top.gif" />
+    <Content Include="Content\zTreeStyle\img\radio.png" />
+    <Content Include="Content\zTreeStyle\img\remove.png" />
+    <Content Include="Content\zTreeStyle\img\sim\10.png" />
+    <Content Include="Content\zTreeStyle\img\sim\1_close.png" />
+    <Content Include="Content\zTreeStyle\img\sim\1_open.png" />
+    <Content Include="Content\zTreeStyle\img\sim\2.png" />
+    <Content Include="Content\zTreeStyle\img\sim\3.png" />
+    <Content Include="Content\zTreeStyle\img\sim\4.png" />
+    <Content Include="Content\zTreeStyle\img\sim\5.png" />
+    <Content Include="Content\zTreeStyle\img\sim\6.png" />
+    <Content Include="Content\zTreeStyle\img\sim\7.png" />
+    <Content Include="Content\zTreeStyle\img\sim\8.png" />
+    <Content Include="Content\zTreeStyle\img\sim\9.png" />
+    <Content Include="Content\zTreeStyle\zTreeIcons.css" />
+    <Content Include="Content\zTreeStyle\zTreeStyle.css" />
+    <Content Include="Error.html" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\LgUI\skins\icons\新建 Microsoft Office Excel 工作表.xlsx" />
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\datapattern.js" />
+    <Content Include="Scripts\easyui-lang-zh_CN.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery-1.8.0.min.js" />
+    <Content Include="Scripts\jquery.easyui.min.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\MyAjaxForm.js" />
+    <Content Include="Scripts\ZTree\jquery-1.4.2.js" />
+    <Content Include="Scripts\ZTree\jquery.ztree-2.6.js" />
+    <Content Include="Scripts\ZTree\jquery.ztree-2.6.min.js" />
+    <Content Include="Views\Home\Index2.html" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Views\UserInfo\Index.cshtml" />
+    <Content Include="Views\UserInfo\Create.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\ActionInfoController.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\DepartmentController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\MenuController.cs" />
+    <Compile Include="Controllers\RoleController.cs" />
+    <Compile Include="Controllers\UserInfoController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MyExceptionFilterAttribute.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\web.config" />
+    <Content Include="packages.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
+    <Content Include="Views\Login\CheckUser.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\UserInfo\ShowUsers.cshtml" />
+    <Content Include="Views\UserInfo\EditUser.cshtml" />
+    <Content Include="Views\Department\Index.cshtml" />
+    <Content Include="Views\Department\EditDep.cshtml" />
+    <Content Include="Views\Role\Index.cshtml" />
+    <Content Include="Views\Role\Edit.cshtml" />
+    <Content Include="Views\UserInfo\SetRole.cshtml" />
+    <Content Include="Views\ActionInfo\Index.cshtml" />
+    <Content Include="Views\ActionInfo\Edit.cshtml" />
+    <Content Include="Views\UserInfo\SetAction.cshtml" />
+    <Content Include="Views\ActionInfo\SetRole.cshtml" />
+    <Content Include="Views\Menu\Index.cshtml" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Upload\Images\" />
+    <Folder Include="Views\Base\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\KMSZ.OADemo.BLL\KMSZ.OADemo.BLL.csproj">
+      <Project>{65293543-f596-438e-8163-633b2b696f22}</Project>
+      <Name>KMSZ.OADemo.BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\KMSZ.OADemo.Common\KMSZ.OADemo.Common.csproj">
+      <Project>{66719cb7-f22f-4b52-80ff-3b127a951b24}</Project>
+      <Name>KMSZ.OADemo.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\KMSZ.OADemo.DalFactory\KMSZ.OADemo.DalFactory.csproj">
+      <Project>{14f1179e-7423-4a20-870f-8794917a6b3d}</Project>
+      <Name>KMSZ.OADemo.DalFactory</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\KMSZ.OADemo.DAL\KMSZ.OADemo.DAL.csproj">
+      <Project>{c76026a6-ae96-4d5c-b2d3-3c3ad0ee2fa3}</Project>
+      <Name>KMSZ.OADemo.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\KMSZ.OADemo.IBLL\KMSZ.OADemo.IBLL.csproj">
+      <Project>{277b57b3-e7c2-4c98-823d-b22a3790643a}</Project>
+      <Name>KMSZ.OADemo.IBLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\KMSZ.OADemo.IDAL\KMSZ.OADemo.IDAL.csproj">
+      <Project>{b400d719-c0e0-4ffe-a452-19a3659f8d76}</Project>
+      <Name>KMSZ.OADemo.IDAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\KMSZ.OADemo.Model\KMSZ.OADemo.Model.csproj">
+      <Project>{e4758f5e-c5c5-4fba-bf2a-06fad60d7b5a}</Project>
+      <Name>KMSZ.OADemo.Model</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>22001</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:52833/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>此项目引用这台计算机上缺少的 NuGet 程序包。使用 NuGet 程序包还原可下载这些程序包。有关详细信息，请参阅 http://go.microsoft.com/fwlink/?LinkID=322105。缺少的文件是 {0}。</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

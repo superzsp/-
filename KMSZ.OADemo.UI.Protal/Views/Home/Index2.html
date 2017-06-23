@@ -1,0 +1,64 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <link rel="stylesheet" type="text/css" href="~/Content/JQEasyUI/themes/default/easyui.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/JQEasyUI/themes/icon.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/JQEasyUI/demo.css">
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/jquery.easyui.min.js"></script>
+</head>
+<body class="easyui-layout">
+    @*网站顶部*@
+    <div data-options="region:'north',border:false" style="height:60px;background:#B3DFDA;padding:10px">north region</div>
+    @*左边栏*@
+    <div data-options="region:'west',split:true,title:'导航菜单'" style="width:150px;padding:10px;">
+        <div class="easyui-accordion">
+            <div title="用户管理" data-options="iconCls:'icon-ok'" style="overflow:auto;padding:5px;">
+                <p>
+                    <a href="~/UserInfo/Create">添加用户</a>
+                </p>
+                <p>
+                    <a href="#">添加用户</a>
+                </p>
+                <p>
+                    <a href="#">添加用户</a>
+                </p>
+                <p>
+                    <a href="#">添加用户</a>
+                </p>
+                <p>
+                    <a href="#">添加用户</a>
+                </p>
+            </div>
+            <div title="角色管理" data-options="iconCls:'icon-ok'" style="overflow:auto;padding:5px;">
+                <p>
+                    <a href="#">添加用户</a>
+                </p>
+                <p>
+                    <a href="#">添加用户</a>
+                </p>
+                <p>
+                    <a href="#">添加用户</a>
+                </p>
+                <p>
+                    <a href="#">添加用户</a>
+                </p>
+                <p>
+                    <a href="#">添加用户</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div data-options="region:'south',border:false" style="height:50px;background:#A9FACD;padding:10px;">south region</div>
+
+    <div data-options="region:'center',title:'Center'"></div>
+</body>
+</html>

@@ -1,0 +1,781 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="DataModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="DataModelStoreContainer">
+    <EntitySet Name="UserInfo" EntityType="DataModel.Store.UserInfo" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Role" EntityType="DataModel.Store.Role" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Department" EntityType="DataModel.Store.Department" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="WorkTime" EntityType="DataModel.Store.WorkTime" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ActionInfo" EntityType="DataModel.Store.ActionInfo" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="R_User_ActionInfo" EntityType="DataModel.Store.R_User_ActionInfo" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="UserInfoMeta" EntityType="DataModel.Store.UserInfoMeta" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Demo" EntityType="DataModel.Store.Demo" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="MenuInfo" EntityType="DataModel.Store.MenuInfo" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="UserInfoRole" EntityType="DataModel.Store.UserInfoRole" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ActionInfoRole" EntityType="DataModel.Store.ActionInfoRole" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="UserInfoDepartment" EntityType="DataModel.Store.UserInfoDepartment" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="DepartmentRole" EntityType="DataModel.Store.DepartmentRole" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ActioinInfoRole" EntityType="DataModel.Store.ActioinInfoRole" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_UserInfoRole_UserInfo" Association="DataModel.Store.FK_UserInfoRole_UserInfo">
+      <End Role="UserInfo" EntitySet="UserInfo" />
+      <End Role="UserInfoRole" EntitySet="UserInfoRole" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserInfoRole_Role" Association="DataModel.Store.FK_UserInfoRole_Role">
+      <End Role="Role" EntitySet="Role" />
+      <End Role="UserInfoRole" EntitySet="UserInfoRole" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ActionInfoRole_ActionInfo" Association="DataModel.Store.FK_ActionInfoRole_ActionInfo">
+      <End Role="ActionInfo" EntitySet="ActionInfo" />
+      <End Role="ActionInfoRole" EntitySet="ActionInfoRole" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ActionInfoRole_Role" Association="DataModel.Store.FK_ActionInfoRole_Role">
+      <End Role="Role" EntitySet="Role" />
+      <End Role="ActionInfoRole" EntitySet="ActionInfoRole" />
+    </AssociationSet>
+    <AssociationSet Name="UserInfoR_User_ActionInfo" Association="DataModel.Store.UserInfoR_User_ActionInfo">
+      <End Role="UserInfo" EntitySet="UserInfo" />
+      <End Role="R_User_ActionInfo" EntitySet="R_User_ActionInfo" />
+    </AssociationSet>
+    <AssociationSet Name="ActionInfoR_User_ActionInfo" Association="DataModel.Store.ActionInfoR_User_ActionInfo">
+      <End Role="ActionInfo" EntitySet="ActionInfo" />
+      <End Role="R_User_ActionInfo" EntitySet="R_User_ActionInfo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserInfoDepartment_UserInfo" Association="DataModel.Store.FK_UserInfoDepartment_UserInfo">
+      <End Role="UserInfo" EntitySet="UserInfo" />
+      <End Role="UserInfoDepartment" EntitySet="UserInfoDepartment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserInfoDepartment_Department" Association="DataModel.Store.FK_UserInfoDepartment_Department">
+      <End Role="Department" EntitySet="Department" />
+      <End Role="UserInfoDepartment" EntitySet="UserInfoDepartment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DepartmentRole_Department" Association="DataModel.Store.FK_DepartmentRole_Department">
+      <End Role="Department" EntitySet="Department" />
+      <End Role="DepartmentRole" EntitySet="DepartmentRole" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DepartmentRole_Role" Association="DataModel.Store.FK_DepartmentRole_Role">
+      <End Role="Role" EntitySet="Role" />
+      <End Role="DepartmentRole" EntitySet="DepartmentRole" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ActioinInfoRole_ActionInfo" Association="DataModel.Store.FK_ActioinInfoRole_ActionInfo">
+      <End Role="ActionInfo" EntitySet="ActionInfo" />
+      <End Role="ActioinInfoRole" EntitySet="ActioinInfoRole" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ActioinInfoRole_Role" Association="DataModel.Store.FK_ActioinInfoRole_Role">
+      <End Role="Role" EntitySet="Role" />
+      <End Role="ActioinInfoRole" EntitySet="ActioinInfoRole" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="UserInfo">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Pwd" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Mail" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Phone" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="DelFlag" Type="smallint" Nullable="true" />
+    <Property Name="SubTime" Type="datetime" Nullable="true" />
+    <Property Name="Remark" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="SubBy" Type="int" Nullable="true" />
+  </EntityType>
+  <EntityType Name="Role">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RoleName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="DelFlag" Type="smallint" Nullable="true" />
+    <Property Name="SubTime" Type="datetime" Nullable="true" />
+    <Property Name="Remark" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="SubBy" Type="int" Nullable="true" />
+  </EntityType>
+  <EntityType Name="Department">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DepName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ParentId" Type="int" Nullable="false" />
+    <Property Name="DepMasterId" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="DepNo" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="IsLeaf" Type="bit" Nullable="false" />
+    <Property Name="Lever" Type="int" Nullable="false" />
+    <Property Name="TreePath" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="DelFlag" Type="smallint" Nullable="true" />
+    <Property Name="SubTime" Type="datetime" Nullable="true" />
+    <Property Name="SubBy" Type="int" Nullable="true" />
+  </EntityType>
+  <EntityType Name="WorkTime">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SubTime" Type="datetime" Nullable="false" />
+    <Property Name="OffTime" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ActionInfo">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DelFlag" Type="smallint" Nullable="true" />
+    <Property Name="SubBy" Type="int" Nullable="true" />
+    <Property Name="SubTime" Type="datetime" Nullable="false" />
+    <Property Name="Url" Type="nvarchar" Nullable="true" MaxLength="512" />
+    <Property Name="HttpMethod" Type="varchar" Nullable="true" MaxLength="32" />
+    <Property Name="ActionName" Type="nvarchar" Nullable="true" MaxLength="32" />
+    <Property Name="Remark" Type="nvarchar" Nullable="true" MaxLength="128" />
+    <Property Name="Controller" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="ActionMethod" Type="nvarchar(max)" Nullable="true" />
+  </EntityType>
+  <EntityType Name="R_User_ActionInfo">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IsPass" Type="bit" Nullable="false" />
+    <Property Name="UserInfoId" Type="int" Nullable="false" />
+    <Property Name="ActionInfoId" Type="int" Nullable="false" />
+    <Property Name="DelFlag" Type="smallint" Nullable="true" />
+  </EntityType>
+  <EntityType Name="UserInfoMeta">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="QQ" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Msn" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="UserInfoId" Type="int" Nullable="false" />
+    <Property Name="DelFlag" Type="smallint" Nullable="true" />
+    <Property Name="SubBy" Type="int" Nullable="true" />
+    <Property Name="SubTime" Type="datetime" Nullable="true" />
+  </EntityType>
+  <EntityType Name="Demo">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DelFlag" Type="smallint" Nullable="false" />
+    <Property Name="SubTime" Type="datetime" Nullable="false" />
+    <Property Name="Remark" Type="nvarchar" Nullable="true" MaxLength="128" />
+    <Property Name="SubBy" Type="int" Nullable="true" />
+  </EntityType>
+  <EntityType Name="MenuInfo">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MenuName" Type="nvarchar" Nullable="false" MaxLength="32" />
+    <Property Name="ActionInfoId" Type="int" Nullable="false" />
+    <Property Name="DelFlag" Type="smallint" Nullable="false" />
+    <Property Name="SubTime" Type="datetime" Nullable="false" />
+    <Property Name="Remark" Type="nvarchar" Nullable="true" MaxLength="128" />
+    <Property Name="SubBy" Type="int" Nullable="true" />
+    <Property Name="Sort" Type="int" Nullable="false" />
+    <Property Name="IsVisable" Type="bit" Nullable="false" />
+    <Property Name="DialogHeight" Type="int" Nullable="false" />
+    <Property Name="DialogWidth" Type="int" Nullable="false" />
+    <Property Name="IconUrl" Type="nvarchar" Nullable="false" MaxLength="512" />
+    <Property Name="ParentId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UserInfoRole">
+    <Key>
+      <PropertyRef Name="UserInfo_Id" />
+      <PropertyRef Name="Role_Id" />
+    </Key>
+    <Property Name="UserInfo_Id" Type="int" Nullable="false" />
+    <Property Name="Role_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ActionInfoRole">
+    <Key>
+      <PropertyRef Name="ActionInfo_Id" />
+      <PropertyRef Name="Role_Id" />
+    </Key>
+    <Property Name="ActionInfo_Id" Type="int" Nullable="false" />
+    <Property Name="Role_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UserInfoDepartment">
+    <Key>
+      <PropertyRef Name="UserInfo_Id" />
+      <PropertyRef Name="Department_Id" />
+    </Key>
+    <Property Name="UserInfo_Id" Type="int" Nullable="false" />
+    <Property Name="Department_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DepartmentRole">
+    <Key>
+      <PropertyRef Name="Department_Id" />
+      <PropertyRef Name="Role_Id" />
+    </Key>
+    <Property Name="Department_Id" Type="int" Nullable="false" />
+    <Property Name="Role_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ActioinInfoRole">
+    <Key>
+      <PropertyRef Name="ActionInfo1_Id" />
+      <PropertyRef Name="Role1_Id" />
+    </Key>
+    <Property Name="ActionInfo1_Id" Type="int" Nullable="false" />
+    <Property Name="Role1_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="UserInfoR_User_ActionInfo">
+    <End Role="UserInfo" Type="DataModel.Store.UserInfo" Multiplicity="1" />
+    <End Role="R_User_ActionInfo" Type="DataModel.Store.R_User_ActionInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserInfo">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="R_User_ActionInfo">
+        <PropertyRef Name="UserInfoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ActionInfoR_User_ActionInfo">
+    <End Role="ActionInfo" Type="DataModel.Store.ActionInfo" Multiplicity="1" />
+    <End Role="R_User_ActionInfo" Type="DataModel.Store.R_User_ActionInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ActionInfo">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="R_User_ActionInfo">
+        <PropertyRef Name="ActionInfoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserInfoRole_UserInfo">
+    <End Role="UserInfo" Type="DataModel.Store.UserInfo" Multiplicity="1" />
+    <End Role="UserInfoRole" Type="DataModel.Store.UserInfoRole" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserInfo">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserInfoRole">
+        <PropertyRef Name="UserInfo_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserInfoRole_Role">
+    <End Role="UserInfoRole" Type="DataModel.Store.UserInfoRole" Multiplicity="*" />
+    <End Role="Role" Type="DataModel.Store.Role" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Role">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserInfoRole">
+        <PropertyRef Name="Role_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ActionInfoRole_ActionInfo">
+    <End Role="ActionInfo" Type="DataModel.Store.ActionInfo" Multiplicity="1" />
+    <End Role="ActionInfoRole" Type="DataModel.Store.ActionInfoRole" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ActionInfo">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ActionInfoRole">
+        <PropertyRef Name="ActionInfo_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ActionInfoRole_Role">
+    <End Role="ActionInfoRole" Type="DataModel.Store.ActionInfoRole" Multiplicity="*" />
+    <End Role="Role" Type="DataModel.Store.Role" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Role">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ActionInfoRole">
+        <PropertyRef Name="Role_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserInfoDepartment_UserInfo">
+    <End Role="UserInfo" Type="DataModel.Store.UserInfo" Multiplicity="1" />
+    <End Role="UserInfoDepartment" Type="DataModel.Store.UserInfoDepartment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserInfo">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserInfoDepartment">
+        <PropertyRef Name="UserInfo_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserInfoDepartment_Department">
+    <End Role="UserInfoDepartment" Type="DataModel.Store.UserInfoDepartment" Multiplicity="*" />
+    <End Role="Department" Type="DataModel.Store.Department" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Department">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserInfoDepartment">
+        <PropertyRef Name="Department_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DepartmentRole_Department">
+    <End Role="Department" Type="DataModel.Store.Department" Multiplicity="1" />
+    <End Role="DepartmentRole" Type="DataModel.Store.DepartmentRole" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Department">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="DepartmentRole">
+        <PropertyRef Name="Department_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DepartmentRole_Role">
+    <End Role="DepartmentRole" Type="DataModel.Store.DepartmentRole" Multiplicity="*" />
+    <End Role="Role" Type="DataModel.Store.Role" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Role">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="DepartmentRole">
+        <PropertyRef Name="Role_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ActioinInfoRole_ActionInfo">
+    <End Role="ActionInfo" Type="DataModel.Store.ActionInfo" Multiplicity="1" />
+    <End Role="ActioinInfoRole" Type="DataModel.Store.ActioinInfoRole" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ActionInfo">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ActioinInfoRole">
+        <PropertyRef Name="ActionInfo1_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ActioinInfoRole_Role">
+    <End Role="ActioinInfoRole" Type="DataModel.Store.ActioinInfoRole" Multiplicity="*" />
+    <End Role="Role" Type="DataModel.Store.Role" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Role">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ActioinInfoRole">
+        <PropertyRef Name="Role1_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="DataModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+        <EntityContainer Name="DataModelContainer" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="UserInfo" EntityType="DataModel.UserInfo" />
+          <EntitySet Name="Role" EntityType="DataModel.Role" />
+          <EntitySet Name="Department" EntityType="DataModel.Department" />
+          <EntitySet Name="WorkTime" EntityType="DataModel.WorkTime" />
+          <EntitySet Name="ActionInfo" EntityType="DataModel.ActionInfo" />
+          <AssociationSet Name="UserInfoRole" Association="DataModel.UserInfoRole">
+            <End Role="UserInfo" EntitySet="UserInfo" />
+            <End Role="Role" EntitySet="Role" />
+          </AssociationSet>
+          <AssociationSet Name="ActionInfoRole" Association="DataModel.ActionInfoRole">
+            <End Role="ActionInfo" EntitySet="ActionInfo" />
+            <End Role="Role" EntitySet="Role" />
+          </AssociationSet>
+          <EntitySet Name="R_User_ActionInfo" EntityType="DataModel.R_User_ActionInfo" />
+          <AssociationSet Name="UserInfoR_User_ActionInfo" Association="DataModel.UserInfoR_User_ActionInfo">
+            <End Role="UserInfo" EntitySet="UserInfo" />
+            <End Role="R_User_ActionInfo" EntitySet="R_User_ActionInfo" />
+          </AssociationSet>
+          <AssociationSet Name="ActionInfoR_User_ActionInfo" Association="DataModel.ActionInfoR_User_ActionInfo">
+            <End Role="ActionInfo" EntitySet="ActionInfo" />
+            <End Role="R_User_ActionInfo" EntitySet="R_User_ActionInfo" />
+          </AssociationSet>
+          <AssociationSet Name="UserInfoDepartment" Association="DataModel.UserInfoDepartment">
+            <End Role="UserInfo" EntitySet="UserInfo" />
+            <End Role="Department" EntitySet="Department" />
+          </AssociationSet>
+          <AssociationSet Name="DepartmentRole" Association="DataModel.DepartmentRole">
+            <End Role="Department" EntitySet="Department" />
+            <End Role="Role" EntitySet="Role" />
+          </AssociationSet>
+          <EntitySet Name="UserInfoMeta" EntityType="DataModel.UserInfoMeta" />
+          <EntitySet Name="Demo" EntityType="DataModel.Demo" />
+          <AssociationSet Name="ActioinInfoRole" Association="DataModel.ActioinInfoRole">
+            <End Role="ActionInfo" EntitySet="ActionInfo" />
+            <End Role="Role" EntitySet="Role" />
+          </AssociationSet>
+          <EntitySet Name="MenuInfo" EntityType="DataModel.MenuInfo" />
+        </EntityContainer>
+        <EntityType Name="UserInfo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Pwd" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Role" Relationship="DataModel.UserInfoRole" FromRole="UserInfo" ToRole="Role" />
+          <NavigationProperty Name="R_User_ActionInfo" Relationship="DataModel.UserInfoR_User_ActionInfo" FromRole="UserInfo" ToRole="R_User_ActionInfo" />
+          <NavigationProperty Name="Department" Relationship="DataModel.UserInfoDepartment" FromRole="UserInfo" ToRole="Department" />
+          <Property Name="Mail" Type="String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Phone" Type="String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="DelFlag" Type="Int16" Nullable="true" />
+          <Property Name="SubTime" Type="DateTime" Nullable="true" Precision="3" />
+          <Property Name="Remark" Type="String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="SubBy" Type="Int32" Nullable="true" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RoleName" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="UserInfo" Relationship="DataModel.UserInfoRole" FromRole="Role" ToRole="UserInfo" />
+          <NavigationProperty Name="ActionInfo" Relationship="DataModel.ActionInfoRole" FromRole="Role" ToRole="ActionInfo" />
+          <NavigationProperty Name="Department" Relationship="DataModel.DepartmentRole" FromRole="Role" ToRole="Department" />
+          <Property Name="DelFlag" Type="Int16" Nullable="true" />
+          <Property Name="SubTime" Type="DateTime" Nullable="true" Precision="3" />
+          <Property Name="Remark" Nullable="true" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="SubBy" Type="Int32" Nullable="true" />
+          <NavigationProperty Name="ActionInfo1" Relationship="DataModel.ActioinInfoRole" FromRole="Role" ToRole="ActionInfo" />
+        </EntityType>
+        <EntityType Name="Department">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DepName" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="UserInfo" Relationship="DataModel.UserInfoDepartment" FromRole="Department" ToRole="UserInfo" />
+          <NavigationProperty Name="Role" Relationship="DataModel.DepartmentRole" FromRole="Department" ToRole="Role" />
+          <Property Name="ParentId" Type="Int32" Nullable="false" />
+          <Property Name="DepMasterId" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="DepNo" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="IsLeaf" Type="Boolean" Nullable="false" >
+            <Documentation>
+              <Summary>是否叶子结点</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="Lever" Type="Int32" Nullable="false" />
+          <Property Name="TreePath" Type="String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="DelFlag" Type="Int16" Nullable="true" />
+          <Property Name="SubTime" Type="DateTime" Nullable="true" Precision="3" />
+          <Property Name="SubBy" Type="Int32" Nullable="true" />
+        </EntityType>
+        <EntityType Name="WorkTime">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SubTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="OffTime" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="ActionInfo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DelFlag" Type="Int16" />
+          <Property Name="SubBy" Type="Int32" />
+          <Property Name="SubTime" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Role" Relationship="DataModel.ActionInfoRole" FromRole="ActionInfo" ToRole="Role" />
+          <NavigationProperty Name="R_User_ActionInfo" Relationship="DataModel.ActionInfoR_User_ActionInfo" FromRole="ActionInfo" ToRole="R_User_ActionInfo" />
+          <Property Name="Url" Type="String" Nullable="true" MaxLength="512" Unicode="true" FixedLength="false" />
+          <Property Name="HttpMethod" Type="String" Nullable="true" MaxLength="32" Unicode="false" FixedLength="false" />
+          <Property Name="ActionName" Type="String" Nullable="true" MaxLength="32" Unicode="true" FixedLength="false" />
+          <Property Name="Remark" Type="String" Nullable="true" MaxLength="128" Unicode="true" FixedLength="false" />
+          <Property Name="Controller" Type="String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="ActionMethod" Type="String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Role1" Relationship="DataModel.ActioinInfoRole" FromRole="ActionInfo" ToRole="Role" />
+        </EntityType>
+        <Association Name="UserInfoRole">
+          <End Type="DataModel.UserInfo" Role="UserInfo" Multiplicity="*" />
+          <End Type="DataModel.Role" Role="Role" Multiplicity="*" />
+        </Association>
+        <Association Name="ActionInfoRole">
+          <End Type="DataModel.ActionInfo" Role="ActionInfo" Multiplicity="*" />
+          <End Type="DataModel.Role" Role="Role" Multiplicity="*" />
+        </Association>
+        <EntityType Name="R_User_ActionInfo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IsPass" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="UserInfo" Relationship="DataModel.UserInfoR_User_ActionInfo" FromRole="R_User_ActionInfo" ToRole="UserInfo" />
+          <Property Name="UserInfoId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="ActionInfo" Relationship="DataModel.ActionInfoR_User_ActionInfo" FromRole="R_User_ActionInfo" ToRole="ActionInfo" />
+          <Property Name="ActionInfoId" Type="Int32" Nullable="false" />
+          <Property Name="DelFlag" Type="Int16" />
+        </EntityType>
+        <Association Name="UserInfoR_User_ActionInfo">
+          <End Type="DataModel.UserInfo" Role="UserInfo" Multiplicity="1" />
+          <End Type="DataModel.R_User_ActionInfo" Role="R_User_ActionInfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserInfo">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="R_User_ActionInfo">
+              <PropertyRef Name="UserInfoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ActionInfoR_User_ActionInfo">
+          <End Type="DataModel.ActionInfo" Role="ActionInfo" Multiplicity="1" />
+          <End Type="DataModel.R_User_ActionInfo" Role="R_User_ActionInfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ActionInfo">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="R_User_ActionInfo">
+              <PropertyRef Name="ActionInfoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="UserInfoDepartment">
+          <End Type="DataModel.UserInfo" Role="UserInfo" Multiplicity="*" />
+          <End Type="DataModel.Department" Role="Department" Multiplicity="*" />
+        </Association>
+        <Association Name="DepartmentRole">
+          <End Type="DataModel.Department" Role="Department" Multiplicity="*" />
+          <End Type="DataModel.Role" Role="Role" Multiplicity="*" />
+        </Association>
+        <EntityType Name="UserInfoMeta">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="QQ" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Msn" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="UserInfoId" Type="Int32" Nullable="false" />
+          <Property Name="DelFlag" Type="Int16" Nullable="true" />
+          <Property Name="SubBy" Type="Int32" Nullable="true" />
+          <Property Name="SubTime" Type="DateTime" Nullable="true" Precision="3" />
+          </EntityType>
+        <EntityType Name="Demo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DelFlag" Type="Int16" Nullable="false" />
+          <Property Name="SubTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Remark" Type="String" Nullable="true" MaxLength="128" Unicode="true" FixedLength="false" />
+          <Property Name="SubBy" Type="Int32" Nullable="true" />
+        </EntityType>
+        <Association Name="ActioinInfoRole">
+          <End Type="DataModel.ActionInfo" Role="ActionInfo" Multiplicity="*" />
+          <End Type="DataModel.Role" Role="Role" Multiplicity="*" />
+        </Association>
+        <EntityType Name="MenuInfo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MenuName" Type="String" Nullable="false" MaxLength="32" />
+          <Property Name="ActionInfoId" Type="Int32" Nullable="false" />
+          <Property Name="DelFlag" Type="Int16" Nullable="false" />
+          <Property Name="SubTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Remark" Type="String" Nullable="true" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="SubBy" Type="Int32" Nullable="true" />
+          <Property Name="Sort" Type="Int32" Nullable="false" />
+          <Property Name="IsVisable" Type="Boolean" Nullable="false" />
+          <Property Name="DialogHeight" Type="Int32" Nullable="false" />
+          <Property Name="DialogWidth" Type="Int32" Nullable="false" />
+          <Property Name="IconUrl" Type="String" Nullable="false" MaxLength="512" />
+          <Property Name="ParentId" Type="Int32" Nullable="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DataModelStoreContainer" CdmEntityContainer="DataModelContainer">
+    <EntitySetMapping Name="UserInfo">
+      <EntityTypeMapping TypeName="IsTypeOf(DataModel.UserInfo)">
+        <MappingFragment StoreEntitySet="UserInfo">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Pwd" ColumnName="Pwd" />
+          <ScalarProperty Name="Mail" ColumnName="Mail" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="DelFlag" ColumnName="DelFlag" />
+          <ScalarProperty Name="SubTime" ColumnName="SubTime" />
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="SubBy" ColumnName="SubBy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Role">
+      <EntityTypeMapping TypeName="IsTypeOf(DataModel.Role)">
+        <MappingFragment StoreEntitySet="Role">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+          <ScalarProperty Name="DelFlag" ColumnName="DelFlag" />
+          <ScalarProperty Name="SubTime" ColumnName="SubTime" />
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="SubBy" ColumnName="SubBy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Department">
+      <EntityTypeMapping TypeName="IsTypeOf(DataModel.Department)">
+        <MappingFragment StoreEntitySet="Department">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="DepName" ColumnName="DepName" />
+          <ScalarProperty Name="ParentId" ColumnName="ParentId" />
+          <ScalarProperty Name="DepMasterId" ColumnName="DepMasterId" />
+          <ScalarProperty Name="DepNo" ColumnName="DepNo" />
+          <ScalarProperty Name="IsLeaf" ColumnName="IsLeaf" />
+          <ScalarProperty Name="Lever" ColumnName="Lever" />
+          <ScalarProperty Name="TreePath" ColumnName="TreePath" />
+          <ScalarProperty Name="DelFlag" ColumnName="DelFlag" />
+          <ScalarProperty Name="SubTime" ColumnName="SubTime" />
+          <ScalarProperty Name="SubBy" ColumnName="SubBy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="WorkTime">
+      <EntityTypeMapping TypeName="IsTypeOf(DataModel.WorkTime)">
+        <MappingFragment StoreEntitySet="WorkTime">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="SubTime" ColumnName="SubTime" />
+          <ScalarProperty Name="OffTime" ColumnName="OffTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ActionInfo">
+      <EntityTypeMapping TypeName="IsTypeOf(DataModel.ActionInfo)">
+        <MappingFragment StoreEntitySet="ActionInfo">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="DelFlag" ColumnName="DelFlag" />
+          <ScalarProperty Name="SubBy" ColumnName="SubBy" />
+          <ScalarProperty Name="SubTime" ColumnName="SubTime" />
+          <ScalarProperty Name="Url" ColumnName="Url" />
+          <ScalarProperty Name="HttpMethod" ColumnName="HttpMethod" />
+          <ScalarProperty Name="ActionName" ColumnName="ActionName" />
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="Controller" ColumnName="Controller" />
+          <ScalarProperty Name="ActionMethod" ColumnName="ActionMethod" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="R_User_ActionInfo">
+      <EntityTypeMapping TypeName="IsTypeOf(DataModel.R_User_ActionInfo)">
+        <MappingFragment StoreEntitySet="R_User_ActionInfo">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="IsPass" ColumnName="IsPass" />
+          <ScalarProperty Name="UserInfoId" ColumnName="UserInfoId" />
+          <ScalarProperty Name="ActionInfoId" ColumnName="ActionInfoId" />
+          <ScalarProperty Name="DelFlag" ColumnName="DelFlag" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserInfoMeta">
+      <EntityTypeMapping TypeName="IsTypeOf(DataModel.UserInfoMeta)">
+        <MappingFragment StoreEntitySet="UserInfoMeta">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="QQ" ColumnName="QQ" />
+          <ScalarProperty Name="Msn" ColumnName="Msn" />
+          <ScalarProperty Name="UserInfoId" ColumnName="UserInfoId" />
+          <ScalarProperty Name="DelFlag" ColumnName="DelFlag" />
+          <ScalarProperty Name="SubBy" ColumnName="SubBy" />
+          <ScalarProperty Name="SubTime" ColumnName="SubTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Demo">
+      <EntityTypeMapping TypeName="IsTypeOf(DataModel.Demo)">
+        <MappingFragment StoreEntitySet="Demo">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="DelFlag" ColumnName="DelFlag" />
+          <ScalarProperty Name="SubTime" ColumnName="SubTime" />
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="SubBy" ColumnName="SubBy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MenuInfo">
+      <EntityTypeMapping TypeName="IsTypeOf(DataModel.MenuInfo)">
+        <MappingFragment StoreEntitySet="MenuInfo">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="MenuName" ColumnName="MenuName" />
+          <ScalarProperty Name="ActionInfoId" ColumnName="ActionInfoId" />
+          <ScalarProperty Name="DelFlag" ColumnName="DelFlag" />
+          <ScalarProperty Name="SubTime" ColumnName="SubTime" />
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="SubBy" ColumnName="SubBy" />
+          <ScalarProperty Name="Sort" ColumnName="Sort" />
+          <ScalarProperty Name="IsVisable" ColumnName="IsVisable" />
+          <ScalarProperty Name="DialogHeight" ColumnName="DialogHeight" />
+          <ScalarProperty Name="DialogWidth" ColumnName="DialogWidth" />
+          <ScalarProperty Name="IconUrl" ColumnName="IconUrl" />
+          <ScalarProperty Name="ParentId" ColumnName="ParentId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="UserInfoRole" TypeName="DataModel.UserInfoRole" StoreEntitySet="UserInfoRole">
+      <EndProperty Name="UserInfo">
+        <ScalarProperty Name="Id" ColumnName="UserInfo_Id" />
+      </EndProperty>
+      <EndProperty Name="Role">
+        <ScalarProperty Name="Id" ColumnName="Role_Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ActionInfoRole" TypeName="DataModel.ActionInfoRole" StoreEntitySet="ActionInfoRole">
+      <EndProperty Name="ActionInfo">
+        <ScalarProperty Name="Id" ColumnName="ActionInfo_Id" />
+      </EndProperty>
+      <EndProperty Name="Role">
+        <ScalarProperty Name="Id" ColumnName="Role_Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="UserInfoDepartment" TypeName="DataModel.UserInfoDepartment" StoreEntitySet="UserInfoDepartment">
+      <EndProperty Name="UserInfo">
+        <ScalarProperty Name="Id" ColumnName="UserInfo_Id" />
+      </EndProperty>
+      <EndProperty Name="Department">
+        <ScalarProperty Name="Id" ColumnName="Department_Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="DepartmentRole" TypeName="DataModel.DepartmentRole" StoreEntitySet="DepartmentRole">
+      <EndProperty Name="Department">
+        <ScalarProperty Name="Id" ColumnName="Department_Id" />
+      </EndProperty>
+      <EndProperty Name="Role">
+        <ScalarProperty Name="Id" ColumnName="Role_Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ActioinInfoRole" TypeName="DataModel.ActioinInfoRole" StoreEntitySet="ActioinInfoRole">
+      <EndProperty Name="ActionInfo">
+        <ScalarProperty Name="Id" ColumnName="ActionInfo1_Id" />
+      </EndProperty>
+      <EndProperty Name="Role">
+        <ScalarProperty Name="Id" ColumnName="Role1_Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="无" />
+        <DesignerProperty Name="UseLegacyProvider" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
